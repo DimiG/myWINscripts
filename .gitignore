@@ -1,0 +1,7 @@
+/*
+!/.gitignore
+!/PowerShell/
+/PowerShell/*
+!/PowerShell/ConvertMKV2MPG.ps1
+!/README.md
+.DS_Store
