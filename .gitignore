@@ -3,5 +3,6 @@
 !/PowerShell/
 /PowerShell/*
 !/PowerShell/ConvertMKV2MPG.ps1
+!/PowerShell/ConvertMP4toMPG.ps1
 !/README.md
 .DS_Store
