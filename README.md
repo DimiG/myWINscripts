@@ -9,15 +9,11 @@ Scripts description
 -------------------
 
 ### PowerShell folder
-
-* `ConvertMKV2MPG.ps1`: Transcode MKV video files to MPG format. Provide 23.976 fps to NTSC 
-   with aspect ratio request. Tested video with SONY SMP-U10 USB player.
-   **Requires :** PowerShell Version 2.0 and ffmpeg for Windows
    
-* `ConvertMP4toMPG.ps1`: Transcode MP4 video files to MPG format. Provide FPS, video format
-   and aspect ratio request. Tested video with SONY SMP-U10 USB player.
-   ***Note:*** Played much with functions in PowerShell.
-   **Requires :** PowerShell Version 2.0 and ffmpeg for Windows
+* `Convert2.ps1`: Transcode any video file(s) to format you wish. Provide FPS, video format
+   and aspect ratio changes. MPEG video tested with SONY SMP-U10 USB player.<br>
+   **Note :** Played much with functions in PowerShell. ;) The code not well optimized.<br>
+   ***Requires :*** PowerShell Version 2.0, ffmpeg and HandBrakeCLI for Windows
    
 * `To be continued...`
 
