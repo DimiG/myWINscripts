@@ -12,7 +12,7 @@ Scripts description
    
 * `Convert2.ps1`: Transcode any video file(s) to format you wish. Provide FPS, video format
    and aspect ratio changes. MPEG video tested with SONY SMP-U10 USB player.<br>
-   **Note :** Played much with functions in PowerShell. ;) The code not well optimized.<br>
+   **Note :** Played much with functions in PowerShell. ;) The code is not well optimized.<br>
    ***Requires :*** PowerShell Version 2.0, ffmpeg and HandBrakeCLI for Windows
    
 * `To be continued...`
