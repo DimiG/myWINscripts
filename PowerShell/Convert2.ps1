@@ -11,7 +11,7 @@
 .NOTES
     File Name : Convert2.ps1
     Author : Dmitri Guslinsky - dimi615@pisem.net
-    Requires : PowerShell Version 2.0, ffmpeg and HandBrakeCLI for Windows
+    Requires : PowerShell Version 2.0 and ffmpeg, HandBrakeCLI for Windows
 .LINK
     This script posted to:
     http://github.com/dimig
@@ -25,7 +25,7 @@
 
 function infStart {
   # Prepare the screen
-    Write-Host "`nStarting...`n"
+    Write-Host "`nStarting..."
 }
 
 function infStop {
@@ -146,12 +146,15 @@ function runConvert2MPG {
     }
       
     [int]$vPad = [math]::Round(($vRes-$vSize)/2)
+    [string]$strPad = "pad=720:" + $vRes + ":0:" + $vPad
 
     Write-Host "`nVideo source file extension is $strExt"
     Write-Host "TV system is $strTvSys"
     Write-Host "Aspect $strAspect"
+    Write-Host "vRes is $vRes"
     Write-Host "vSize is $vSize"
-    Write-Host "vPad is $vPad`n"
+    Write-Host "vPad is $vPad"
+    Write-Host "strPad is $strPad`n"
         
   # Main Command HERE
   
@@ -171,15 +174,15 @@ function runConvert2MPG {
             if (!(test-path $destname)) {
             & "C:\bin\ffmpeg.exe" -i $file -vcodec mpeg2video -pix_fmt yuv420p -me_method epzs `
             -threads 4 -g 45 -bf 2 -trellis 2 -cmp 2 -subcmp 2 -s 720x$vRes `
-            -b:v 4000k -bt 300k -acodec mp2 -ac 2 -ab 192k -ar 48000 -async 1 -y -f vob $destname
+            -b:v 4000k -bt 300k -acodec mp2 -ac 2 -ab 192k -ar 48000 -vol 768 -async 1 -y -f vob $destname
             }
         }
         default
         {
             if (!(test-path $destname)) {
             & "C:\bin\ffmpeg.exe" -i $file -vcodec mpeg2video -pix_fmt yuv420p -me_method epzs `
-            -threads 4 -g 45 -bf 2 -trellis 2 -cmp 2 -subcmp 2 -s 720x$vSize -vf pad=720:$vRes:0:$vPad -aspect 16:9 `
-            -b:v 4000k -bt 300k -acodec mp2 -ac 2 -ab 192k -ar 48000 -async 1 -y -f vob $destname
+            -threads 4 -g 45 -bf 2 -trellis 2 -cmp 2 -subcmp 2 -s 720x$vSize -vf $strPad -aspect 16:9 `
+            -b:v 4000k -bt 300k -acodec mp2 -ac 2 -ab 192k -ar 48000 -vol 768 -async 1 -y -f vob $destname
             }
         }
     }
