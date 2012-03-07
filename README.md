@@ -14,7 +14,7 @@ Scripts description
    ffmpeg and HandBrakeCLI for windows to encode. Provide FPS, video format
    and aspect ratio changes. MPEG video tested with SONY SMP-U10 USB player.<br>
    **Note :** Played much with functions in PowerShell. ;) This code is not well optimized.<br>
-   ***Requires :*** PowerShell Version 2.0, ffmpeg and HandBrakeCLI for Windows
+   ***Requires :*** PowerShell Version 2.0, ffmpeg and HandBrakeCLI for Windows<br>
    ***Important:*** ffmpeg and HandBrakeCLI MUST BE LOCATED in "C:\bin\"
    
 * `To be continued...`
