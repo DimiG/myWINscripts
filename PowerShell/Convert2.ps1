@@ -1,9 +1,10 @@
 <#
 .SYNOPSIS
-    This script is universal converter for MKV/MP4/MOV/MPG files by ffmpeg and HandBrakeCLI
+    This script is universal converter/ripper for MKV/MP4/MOV/MPG and DVD Video files
+    by ffmpeg and HandBrakeCLI
 .DESCRIPTION
-    This script firsts collects the MKV/MP4/MOV/MPG files in current directory and sub dirs,
-    after invokes the FFMPEG or HandBrakeCLI to convert them to your choice.
+    This script firsts collects the MKV/MP4/MOV/MPG or VIDEO_TS files in current directory
+    and sub dirs, after invokes the FFMPEG or HandBrakeCLI to convert them to your choice.
     For better results locate the video files U're going to convert into
     one folder with same params.
     Encode MPEG VIDEO for SONY SMP-U10 USB player
@@ -11,12 +12,13 @@
 .NOTES
     File Name : Convert2.ps1
     Author : Dmitri Guslinsky - dimi615@pisem.net
-    Requires : PowerShell Version 2.0 and ffmpeg, HandBrakeCLI for Windows
+    Requires : PowerShell Version 2.0 and ffmpeg, HandBrakeCLI for Windows.
+    Important : ffmpeg and HandBrakeCLI MUST BE LOCATED in "C:\bin\"
 .LINK
     This script posted to:
     http://github.com/dimig
 .EXAMPLE
-    Just run it in MKV/MP4/MOV/MPG files directory!
+    Just run it in MKV/MP4/MOV/MPG or VIDEO_TS files directory!
 #>
 
 # PowerShell Script for video converting
@@ -122,15 +124,23 @@ function requestAspect {
     return $input
 }
 
+function requestTitle {
+
+    [int]$input = userRequest $strMessage4
+
+    # Check out if EXIT
+    if (($input -eq " ") -or ($input -eq "")) {exit}
+    return $input
+}
+
 function runConvert2MPG {
   # Set Variables
     [int]$vRes = 480
     [string]$strMessage1 = "`nPlease Enter extension for file you plan to convert ( mkv/mp4/mov ) or press `"Enter`" for mkv`a"
     [string]$strMessage2 = "`nPlease Enter TV system you plan to use ( PAL/NTSC ) or press `"Enter`" for NTSC`a"
-    [string]$strMessage3 = "`nInput source aspect ratio or press `"Enter`" to finish`a"
+    [string]$strMessage3 = "`nInput source aspect ratio (1.33 for 4:3, 1.78 for 16:9) or press `"Enter`" to finish`a"
   
   # Set Variables by Functions
-  
     [string]$strExt = formatDecisionBlock
     [string]$strTvSys = colorDecisionBlock
     [double]$strAspect = requestAspect
@@ -146,6 +156,11 @@ function runConvert2MPG {
     }
       
     [int]$vPad = [math]::Round(($vRes-$vSize)/2)
+    
+  # Check if vPad negative  
+    if ($vPad -lt 0) {[int]$vPad = 0}
+    
+  # Make command string
     [string]$strPad = "pad=720:" + $vRes + ":0:" + $vPad
 
     Write-Host "`nVideo source file extension is $strExt"
@@ -191,6 +206,7 @@ function runConvert2MPG {
 }
 
 function runConvert2MP4 {
+  # Set Variables
 
   # Main Command HERE
 
@@ -212,6 +228,30 @@ function runConvert2MP4 {
   infStop
 }
 
+function runDVDrip {
+  # Set Variables
+    [string]$strMessage4 = "`nInput a title to Encode or press `"Enter`" to finish`a"
+  
+  # Set Variables by Functions
+    [int]$vTitle = requestTitle $strMessage4
+
+  # Main Command HERE
+    Write-Host "`nYour title is $vTitle`n"
+    Write-Debug "Your output file name is DVDout.mp4`n"
+    
+  # Collect the files  
+    $subpath = (Get-Location -PSProvider FileSystem).ProviderPath
+    $destname = "DVDout.mp4"
+
+  # Collect the files
+    if (!(test-path $destname)) {
+        & "C:\bin\HandBrakeCLI.exe" -i $subpath -o $destname -t $vTitle --crop 0:0:0:0 -b 2700 -B 160 -X 720 `
+        -e x264  -q 20.0 -a 1 -E faac -6 dpl2 -R Auto -D 0.0 -f mp4 --strict-anamorphic `
+        -x ref=2:bframes=2:subme=6:mixed-refs=0:weightb=0:8x8dct=0:trellis=0
+    }
+  infStop
+}
+
 function mainMenu
 {
   # Set Variables
@@ -228,6 +268,7 @@ function mainMenu
         Write-Host "============`n"
         Write-Host "1. Press '1' for MKV/MP4/MOV to MPG conversion"
         Write-Host "2. Press '2' for MKV/MPG/MOV to MP4 conversion"
+        Write-Host "3. Press '3' for Rip DVD VIDEO_TS to MP4"
         
       # Request Input
         [string]$strResponse = userRequest $strMessageMenu
@@ -242,6 +283,10 @@ function mainMenu
             "2"
             {
                 runConvert2MP4
+            }
+            "3"
+            {
+                runDVDrip
             }
             "q"
             {
@@ -258,6 +303,14 @@ function mainMenu
     } until ($strResponse -eq "q")
   
 }
+
+# Turn on/off DEBUG reporting
+
+# DEBUG ON
+# $DebugPreference = "Continue"
+
+# DEBUG OFF
+# $DebugPreference = "SilentlyContinue"
 
 # Invoke the MAIN MENU routine
 mainMenu
