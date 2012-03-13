@@ -124,35 +124,48 @@ function requestAspect {
     return $input
 }
 
-function requestTitle {
+function requestVolume {
 
     [int]$input = userRequest $strMessage4
+    
+    # Check Out if ENTER
+    if (($input -eq " ") -or ($input -eq "")) {[int]$input = 256}
 
-    # Check out if EXIT
-    if (($input -eq " ") -or ($input -eq "")) {exit}
+    return $input
+}
+
+function requestTitle {
+
+    [int]$input = userRequest $strMessage5
+
+    # Check Out if ENTER
+    if (($input -eq " ") -or ($input -eq "")) {[int]$input = 1}
     return $input
 }
 
 function runConvert2MPG {
   # Set Variables
     [int]$vRes = 480
+    [double]$fps = 23.976
     [string]$strMessage1 = "`nPlease Enter extension for file you plan to convert ( mkv/mp4/mov ) or press `"Enter`" for mkv`a"
-    [string]$strMessage2 = "`nPlease Enter TV system you plan to use ( PAL/NTSC ) or press `"Enter`" for NTSC`a"
-    [string]$strMessage3 = "`nInput source aspect ratio (1.33 for 4:3, 1.78 for 16:9) or press `"Enter`" to finish`a"
+    [string]$strMessage2 = "`nPlease Enter TV system you plan to use ( PAL 25/NTSC 23.976 ) or press `"Enter`" for NTSC`a"
+    [string]$strMessage3 = "`nPlease Input source aspect ratio ( 1.33 for 4:3, 1.78 for 16:9 ) or press `"Enter`" to FINISH`a"
+    [string]$strMessage4 = "`nPlease Input Volume parameter ( 768 for UP ) or press `"Enter`" for Normal ( 256 )`a"
   
   # Set Variables by Functions
     [string]$strExt = formatDecisionBlock
     [string]$strTvSys = colorDecisionBlock
-    [double]$strAspect = requestAspect
+    [double]$aspect = requestAspect
+    [int]$vol = requestVolume
     
   # Set vertical resolution
-    if ($strTvSys -eq "PAL") {[int]$vRes = 576}
+    if ($strTvSys -eq "PAL") {[int]$vRes = 576; [double]$fps = 25}
   
   # Vertical size calculation
     if ($vRes -eq 576) {
-        [int]$vSize = [math]::Round((720/$strAspect)*(64/45))
+        [int]$vSize = [math]::Round((720/$aspect)*(64/45))
     } else {
-        [int]$vSize = [math]::Round((720/$strAspect)*(32/27))
+        [int]$vSize = [math]::Round((720/$aspect)*(32/27))
     }
       
     [int]$vPad = [math]::Round(($vRes-$vSize)/2)
@@ -165,7 +178,9 @@ function runConvert2MPG {
 
     Write-Host "`nVideo source file extension is $strExt"
     Write-Host "TV system is $strTvSys"
-    Write-Host "Aspect $strAspect"
+    Write-Host "Frame rate is $fps"
+    Write-Host "Volume is $vol"
+    Write-Host "Aspect is $aspect"
     Write-Host "vRes is $vRes"
     Write-Host "vSize is $vSize"
     Write-Host "vPad is $vPad"
@@ -189,7 +204,7 @@ function runConvert2MPG {
             if (!(test-path $destname)) {
             & "C:\bin\ffmpeg.exe" -i $file -vcodec mpeg2video -pix_fmt yuv420p -me_method epzs `
             -threads 4 -g 45 -bf 2 -trellis 2 -cmp 2 -subcmp 2 -s 720x$vRes `
-            -b:v 4000k -bt 300k -acodec mp2 -ac 2 -ab 192k -ar 48000 -vol 768 -async 1 -y -f vob $destname
+            -b:v 3300k -bt 300k -r $fps -acodec mp2 -ac 2 -ab 192k -ar 48000 -vol $vol -async 1 -y -f vob $destname
             }
         }
         default
@@ -197,7 +212,7 @@ function runConvert2MPG {
             if (!(test-path $destname)) {
             & "C:\bin\ffmpeg.exe" -i $file -vcodec mpeg2video -pix_fmt yuv420p -me_method epzs `
             -threads 4 -g 45 -bf 2 -trellis 2 -cmp 2 -subcmp 2 -s 720x$vSize -vf $strPad -aspect 16:9 `
-            -b:v 4000k -bt 300k -acodec mp2 -ac 2 -ab 192k -ar 48000 -vol 768 -async 1 -y -f vob $destname
+            -b:v 3300k -bt 300k -r $fps -acodec mp2 -ac 2 -ab 192k -ar 48000 -vol $vol -async 1 -y -f vob $destname
             }
         }
     }
@@ -221,7 +236,7 @@ function runConvert2MP4 {
  
         if (!(test-path $destname)) {
         & "C:\bin\HandBrakeCLI.exe" -i $file -o $destname --crop 0:0:0:0 -b 2700 -B 160 -X 720 `
-            -e x264  -q 20.0 -a 1 -E faac -6 dpl2 -R Auto -D 0.0 -f mp4 --strict-anamorphic `
+            -e x264 -q 20.0 -a 1 -E faac -6 dpl2 -R Auto -D 0.0 -f mp4 --strict-anamorphic `
             -x ref=2:bframes=2:subme=6:mixed-refs=0:weightb=0:8x8dct=0:trellis=0
         }
   }
@@ -230,10 +245,10 @@ function runConvert2MP4 {
 
 function runDVDrip {
   # Set Variables
-    [string]$strMessage4 = "`nInput a title to Encode or press `"Enter`" to finish`a"
+    [string]$strMessage5 = "`nInput a title to Encode or press `"Enter`" for the FIRST one`a"
   
   # Set Variables by Functions
-    [int]$vTitle = requestTitle $strMessage4
+    [int]$vTitle = requestTitle $strMessage5
 
   # Main Command HERE
     Write-Host "`nYour title is $vTitle`n"
@@ -246,7 +261,7 @@ function runDVDrip {
   # Collect the files
     if (!(test-path $destname)) {
         & "C:\bin\HandBrakeCLI.exe" -i $subpath -o $destname -t $vTitle --crop 0:0:0:0 -b 2700 -B 160 -X 720 `
-        -e x264  -q 20.0 -a 1 -E faac -6 dpl2 -R Auto -D 0.0 -f mp4 --strict-anamorphic `
+        -e x264 -q 20.0 -a 1 -E faac -6 dpl2 -R Auto -D 0.0 -f mp4 --strict-anamorphic `
         -x ref=2:bframes=2:subme=6:mixed-refs=0:weightb=0:8x8dct=0:trellis=0
     }
   infStop
