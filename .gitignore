@@ -3,5 +3,6 @@
 !/PowerShell/
 /PowerShell/*
 !/PowerShell/Convert2.ps1
+!/PowerShell/BackupFiles.ps1
 !/README.md
 .DS_Store
