@@ -22,6 +22,12 @@ Scripts description
    ***Requires :*** PowerShell Version 2.0<br>
    ***Important:*** Networked resources must be exist and open for current user. Check folder names below the script
    
+* `WindowsPowerShell`: My implementation of PowerShell modules.<br>
+   **Note :** Please kindly read instructions inside modules. ;) This code may contain bugs.<br>
+   ***Requires :*** PowerShell Version 2.0<br>
+   ***Important:*** WindowsPowerShell folder must be located inside your user Documents folder. Don't change the file names
+   and folder structure.
+   
 * `To be continued...`
 
 Your Questions - my Answers
