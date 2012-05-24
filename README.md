@@ -18,7 +18,9 @@ Scripts description
    ***Important:*** ffmpeg and HandBrakeCLI MUST BE LOCATED in "C:\bin\"
    
 * `BackupFiles.ps1`: Backup networked files locally.<br>
-   **Note :** Played much with networked resources. ;) This code may contain bugs.<br>
+   **Note :** To run this script by Task Scheduler use this command line:<br>
+   powershell.exe -noexit &'C:\bin\scripts\BackupFiles.ps1'<br>
+   This code may contain bugs.<br>
    ***Requires :*** PowerShell Version 2.0<br>
    ***Important:*** Networked resources must be exist and open for current user. Check folder names below the script
    
