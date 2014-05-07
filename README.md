@@ -23,7 +23,13 @@ Scripts description
    This code may contain bugs.<br>
    ***Requires :*** PowerShell Version 2.0<br>
    ***Important:*** Networked resources must be exist and open for current user. Check folder names below the script
-   
+
+* `ripDVD.ps1`: Transcode and Rip DVD to video MP4 format. This script use
+   HandBrakeCLI and dd for Windows. Provide ISO file creation from DVD media.<br>
+   ***Requires :*** PowerShell Version 4.0 and [HandBrakeCLI][handbrake] MinGW x86_64 for Windows.<br>
+                    [dd][dd] for Windows.<br>
+   ***Important:*** HandBrakeCLI and dd MUST BE LOCATED in "C:\bin\"
+
 * `WindowsPowerShell`: My implementation of PowerShell modules.<br>
    **Note :** Please kindly read instructions inside modules. ;) This code may contain bugs.<br>
    ***Requires :*** PowerShell Version 2.0<br>
@@ -71,3 +77,5 @@ send a Pull Request.
 
 [homepage]:http://dimig.blogspot.com
 [dimig]:http://dimig.blogspot.com
+[handbrake]:http://handbrake.fr
+[dd]:http://www.chrysocome.net/dd
