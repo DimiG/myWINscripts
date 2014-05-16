@@ -9,6 +9,13 @@ Scripts description
 -------------------
 
 ### PowerShell folder
+
+* `BackupFiles.ps1`: Backup networked files locally.<br>
+   **Note :** To run this script by Task Scheduler use this command line:<br>
+   powershell.exe -noexit &'C:\bin\scripts\BackupFiles.ps1'<br>
+   This code may contain bugs.<br>
+   ***Requires :*** PowerShell Version 2.0<br>
+   ***Important:*** Networked resources must be exist and open for current user. Check folder names below the script
    
 * `Convert2.ps1`: Transcode and Rip DVD to video format you wish. This script use
    ffmpeg and HandBrakeCLI for windows to encode. Provide FPS, video format
@@ -16,19 +23,18 @@ Scripts description
    **Note :** Played much with functions in PowerShell. ;) This code is not well optimized.<br>
    ***Requires :*** PowerShell Version 2.0, ffmpeg and HandBrakeCLI for Windows<br>
    ***Important:*** ffmpeg and HandBrakeCLI MUST BE LOCATED in "C:\bin\"
-   
-* `BackupFiles.ps1`: Backup networked files locally.<br>
-   **Note :** To run this script by Task Scheduler use this command line:<br>
-   powershell.exe -noexit &'C:\bin\scripts\BackupFiles.ps1'<br>
-   This code may contain bugs.<br>
-   ***Requires :*** PowerShell Version 2.0<br>
-   ***Important:*** Networked resources must be exist and open for current user. Check folder names below the script
 
 * `ripDVD.ps1`: Transcode and Rip DVD to video MP4 format. This script use
    HandBrakeCLI and dd for Windows. Provide ISO file creation from DVD media.<br>
    ***Requires :*** PowerShell Version 4.0 and [HandBrakeCLI][handbrake] MinGW x86_64 for Windows.<br>
                     [dd][dd] for Windows.<br>
    ***Important:*** HandBrakeCLI and dd MUST BE LOCATED in "C:\bin\"
+
+* `SynBackUP.ps1`: Backup the [Synology NAS][synology] WEB site by rsync on Windows platform via SSH. This script use
+   [Rsync][cwrsync] for Windows and [PowerShell][powershell].<br>
+   ***Requires :*** PowerShell Version 4.0 and [Rsync][rsync] for [Windows][cwrsync].<br>
+                    [dd][dd] for Windows.<br>
+   ***Important:*** rsync.exe MUST BE ACCESSIBLE in Path environment set
 
 * `WindowsPowerShell`: My implementation of PowerShell modules.<br>
    **Note :** Please kindly read instructions inside modules. ;) This code may contain bugs.<br>
@@ -79,3 +85,7 @@ send a Pull Request.
 [dimig]:http://dimig.blogspot.com
 [handbrake]:http://handbrake.fr
 [dd]:http://www.chrysocome.net/dd
+[rsync]:http://rsync.samba.org
+[cwrsync]:https://www.itefix.no/i2/cwrsync
+[synology]:http://www.synology.com
+[powershell]:http://www.microsoft.com/powershell
