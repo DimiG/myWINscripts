@@ -34,7 +34,8 @@ Scripts description
    FFmpeg, dvdauthor, mkisofs and ISOWriter for Windows. Provide ISO file creation and ISO file burn.<br>
    ***Requires :*** PowerShell Version 4.0, [FFmpeg][ffmpeg], [dvdauthor][dvdauthor], [mkisofs][mkisofs]<br>
                     and [ISOWriter][isowriter] for Windows.<br>
-   ***Important:*** All CLI utilities MUST BE LOCATED in "C:\bin\" (PATH specified also)
+   ***Important:*** All CLI utilities MUST BE LOCATED in "C:\bin\" (PATH specified also)<br>
+                    The dvd.xml example file located in authorDVD.ps1 folder. Drop it to your working folder.
    
 * `SynBackUP.ps1`: Backup the [Synology NAS][synology] WEB site by rsync on Windows platform via SSH. This script use
    [Rsync][cwrsync] for Windows and [PowerShell][powershell].<br>

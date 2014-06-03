@@ -16,6 +16,7 @@
 !/PowerShell/BackupFiles.ps1
 !/PowerShell/ripDVD.ps1
 !/PowerShell/authorDVD.ps1
+!/PowerShell/dvd.xml
 !/PowerShell/SynBackUP.ps1
 !/PowerShell/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 !/PowerShell/WindowsPowerShell/Modules/graphics/graphics.psm1

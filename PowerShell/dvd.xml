@@ -1,0 +1,13 @@
+<dvdauthor>
+    <vmgm />
+    <titleset>
+        <titles>
+            <pgc>
+                <vob file="movie4dvd.mpg" chapters="0,12:00,24:00,36:00,48:00,60:00,72:00,84:00,96:00" />
+                <post>
+                    jump chapter 1;
+                </post>
+            </pgc>
+        </titles>
+    </titleset>
+</dvdauthor>
