@@ -48,7 +48,7 @@ Scripts description
    ***Requires :*** PowerShell Version 4.0<br>
    ***Important:*** The icon file rename128x128.ico MUST be located same directory as FileRenamerGUI.ps1<br>
                     To start the script CREATE the link to script and ADD the code there<br>
-                    `powershell.exe -sta -WindowStyle hidden -noprofile -nologo -command "C:/FileRenamerGUI.ps1"`
+                    `powershell.exe -sta -WindowStyle hidden -noprofile -nologo -command "C:\FileRenamerGUI.ps1"`
 
 * `WindowsPowerShell`: My implementation of PowerShell modules.<br>
    **Note :** Please kindly read instructions inside modules. ;) This code may contain bugs.<br>
