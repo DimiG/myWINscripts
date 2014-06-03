@@ -30,6 +30,12 @@ Scripts description
                     [dd][dd] for Windows.<br>
    ***Important:*** HandBrakeCLI and dd MUST BE LOCATED in "C:\bin\"
 
+* `authorDVD.ps1`: Author DVD-VIDEO format by this simple script. This script use
+   FFmpeg, dvdauthor, mkisofs and ISOWriter for Windows. Provide ISO file creation and ISO file burn.<br>
+   ***Requires :*** PowerShell Version 4.0, [FFmpeg][ffmpeg], [dvdauthor][dvdauthor], [mkisofs][mkisofs]<br>
+                    and [ISOWriter][isowriter] for Windows.<br>
+   ***Important:*** All CLI utilities MUST BE LOCATED in "C:\bin\" (PATH specified also)
+   
 * `SynBackUP.ps1`: Backup the [Synology NAS][synology] WEB site by rsync on Windows platform via SSH. This script use
    [Rsync][cwrsync] for Windows and [PowerShell][powershell].<br>
    ***Requires :*** PowerShell Version 4.0 and [Rsync][rsync] for [Windows][cwrsync].<br>
@@ -89,3 +95,7 @@ send a Pull Request.
 [cwrsync]:https://www.itefix.no/i2/cwrsync
 [synology]:http://www.synology.com
 [powershell]:http://www.microsoft.com/powershell
+[ffmpeg]:http://ffmpeg.zeranoe.com/builds/
+[dvdauthor]:http://download.videohelp.com/gfd/edcounter.php?file=download/dvdauthor_winbin.zip
+[mkisofs]:http://smithii.com/cdrtools
+[isowriter]:http://isorecorder.alexfeinman.com/ISOWriter.htm
