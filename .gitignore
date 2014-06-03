@@ -1,12 +1,16 @@
 /*
 !/.gitignore
 !/PowerShell/
+!/PowerShell/GUI/
+!/PowerShell/GUI/FileRenamer/
 !/PowerShell/WindowsPowerShell/
 !/PowerShell/WindowsPowerShell/Modules/
 !/PowerShell/WindowsPowerShell/Modules/graphics/
 !/PowerShell/WindowsPowerShell/Modules/tools/
 !/PowerShell/WindowsPowerShell/Modules/video/
 /PowerShell/*
+/PowerShell/GUI/*
+/PowerShell/GUI/FileRenamer/*
 /PowerShell/WindowsPowerShell/*
 /PowerShell/WindowsPowerShell/Modules/*
 /PowerShell/WindowsPowerShell/Modules/graphics/*
@@ -18,6 +22,8 @@
 !/PowerShell/authorDVD.ps1
 !/PowerShell/dvd.xml
 !/PowerShell/SynBackUP.ps1
+!/PowerShell/GUI/FileRenamer/FileRenamerGUI.ps1
+!/PowerShell/GUI/FileRenamer/rename128x128.ico
 !/PowerShell/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 !/PowerShell/WindowsPowerShell/Modules/graphics/graphics.psm1
 !/PowerShell/WindowsPowerShell/Modules/tools/tools.psm1

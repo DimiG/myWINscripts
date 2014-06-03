@@ -36,13 +36,20 @@ Scripts description
                     and [ISOWriter][isowriter] for Windows.<br>
    ***Important:*** All CLI utilities MUST BE LOCATED in "C:\bin\" (PATH specified also)<br>
                     The dvd.xml example file located in authorDVD.ps1 folder. Drop it to your working folder.
-   
+                    
 * `SynBackUP.ps1`: Backup the [Synology NAS][synology] WEB site by rsync on Windows platform via SSH. This script use
    [Rsync][cwrsync] for Windows and [PowerShell][powershell].<br>
    ***Requires :*** PowerShell Version 4.0 and [Rsync][rsync] for [Windows][cwrsync].<br>
                     [dd][dd] for Windows.<br>
    ***Important:*** rsync.exe MUST BE ACCESSIBLE in Path environment set
 
+* `FileRenamerGUI.ps1`: This script rename the bunch of files by adding numbers. Created in a GUI form.<br>
+                    Maybe useful for music album renaming. No additional modules required.
+   ***Requires :*** PowerShell Version 4.0
+   ***Important:*** The icon file rename128x128.ico MUST be located same directory as FileRenamerGUI.ps1
+                    To start the script CREATE the link to script and ADD the code there<br>
+                    `powershell.exe -sta -WindowStyle hidden -noprofile -nologo -command "C:/FULLPathTOscript/FileRenamerGUI.ps1"`
+   
 * `WindowsPowerShell`: My implementation of PowerShell modules.<br>
    **Note :** Please kindly read instructions inside modules. ;) This code may contain bugs.<br>
    ***Requires :*** PowerShell Version 2.0<br>
