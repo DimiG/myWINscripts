@@ -16,7 +16,7 @@ Scripts description
    This code may contain bugs.<br>
    ***Requires :*** PowerShell Version 2.0<br>
    ***Important:*** Networked resources must be exist and open for current user. Check folder names below the script
-   
+
 * `Convert2.ps1`: Transcode and Rip DVD to video format you wish. This script use
    ffmpeg and HandBrakeCLI for windows to encode. Provide FPS, video format
    and aspect ratio changes. MPEG video tested with SONY SMP-U10 USB player.<br>
@@ -36,7 +36,7 @@ Scripts description
                     and [ISOWriter][isowriter] for Windows.<br>
    ***Important:*** All CLI utilities MUST BE LOCATED in "C:\bin\" (PATH specified also)<br>
                     The dvd.xml example file located in authorDVD.ps1 folder. Drop it to your working folder.
-                    
+
 * `SynBackUP.ps1`: Backup the [Synology NAS][synology] WEB site by rsync on Windows platform via SSH. This script use
    [Rsync][cwrsync] for Windows and [PowerShell][powershell].<br>
    ***Requires :*** PowerShell Version 4.0 and [Rsync][rsync] for [Windows][cwrsync].<br>
@@ -44,18 +44,18 @@ Scripts description
    ***Important:*** rsync.exe MUST BE ACCESSIBLE in Path environment set
 
 * `FileRenamerGUI.ps1`: This script rename the bunch of files by adding numbers. Created in a GUI form.<br>
-                    Maybe useful for music album renaming. No additional modules required.
-   ***Requires :*** PowerShell Version 4.0
-   ***Important:*** The icon file rename128x128.ico MUST be located same directory as FileRenamerGUI.ps1
+                    Maybe useful for music album renaming. No additional modules required.<br>
+   ***Requires :*** PowerShell Version 4.0<br>
+   ***Important:*** The icon file rename128x128.ico MUST be located same directory as FileRenamerGUI.ps1<br>
                     To start the script CREATE the link to script and ADD the code there<br>
-                    `powershell.exe -sta -WindowStyle hidden -noprofile -nologo -command "C:/FULLPathTOscript/FileRenamerGUI.ps1"`
-   
+                    `powershell.exe -sta -WindowStyle hidden -noprofile -nologo -command "C:/FileRenamerGUI.ps1"`
+
 * `WindowsPowerShell`: My implementation of PowerShell modules.<br>
    **Note :** Please kindly read instructions inside modules. ;) This code may contain bugs.<br>
    ***Requires :*** PowerShell Version 2.0<br>
    ***Important:*** WindowsPowerShell folder must be located inside your user Documents folder. Don't change the file names
    and folder structure.
-   
+
 * `To be continued...`
 
 Your Questions - my Answers
@@ -69,7 +69,7 @@ Exist some reasons for it:
 
 * If someone have same automation needs he can contribute and improve this code
   for personal use.
-  
+
 * I want to use the `Git` for personal study and project collaboration
 
 ### When do you finish?
