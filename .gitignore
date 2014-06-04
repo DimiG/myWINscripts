@@ -20,6 +20,7 @@
 !/PowerShell/BackupFiles.ps1
 !/PowerShell/ripDVD.ps1
 !/PowerShell/authorDVD.ps1
+!/PowerShell/MKVripper.ps1
 !/PowerShell/dvd.xml
 !/PowerShell/SynBackUP.ps1
 !/PowerShell/GUI/FileRenamer/FileRenamerGUI.ps1

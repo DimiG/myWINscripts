@@ -37,6 +37,12 @@ Scripts description
    ***Important:*** All CLI utilities MUST BE LOCATED in "C:\bin\" (PATH specified also)<br>
                     The dvd.xml example file located in authorDVD.ps1 folder. Drop it to your working folder.
 
+* `MKVripper.ps1`: MKV to MP4 lossless converter. This script use mkvmerge, mkvextract and MP4Box for Windows.<br>
+   ***Requires :*** PowerShell Version 4.0, [mkvmerge][mkvmerge], [mkvextract][mkvextract] and [MP4Box][mp4box] for Windows<br>
+   ***Important:*** All CLI utilities MUST BE LOCATED in "C:\bin\" (PATH specified also)<br>
+                    MP4 doesn't officially support AC3 audio so the audio track should be converted into<br>
+                    a supported format (eg. AAC, MP3), if U WANT the file to be PLAYABLE with something else than VLC. ;)
+
 * `SynBackUP.ps1`: Backup the [Synology NAS][synology] WEB site by rsync on Windows platform via SSH. This script use
    [Rsync][cwrsync] for Windows and [PowerShell][powershell].<br>
    ***Requires :*** PowerShell Version 4.0 and [Rsync][rsync] for [Windows][cwrsync].<br>
@@ -107,3 +113,6 @@ send a Pull Request.
 [dvdauthor]:http://download.videohelp.com/gfd/edcounter.php?file=download/dvdauthor_winbin.zip
 [mkisofs]:http://smithii.com/cdrtools
 [isowriter]:http://isorecorder.alexfeinman.com/ISOWriter.htm
+[mkvmerge]:http://www.bunkus.org/videotools/mkvtoolnix/downloads.html
+[mkvextract]:http://www.bunkus.org/videotools/mkvtoolnix/downloads.html
+[mp4box]:http://gpac.sourceforge.net
