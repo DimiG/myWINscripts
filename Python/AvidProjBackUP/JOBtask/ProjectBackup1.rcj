@@ -1,0 +1,31 @@
+:: ########################################################################
+:: # Avid Project BackUPs
+:: # Created By: Dmitri G. (2014)
+:: # Copyright 2014 Dmitri G. <dimi615@pisem.net>
+:: ########################################################################
+
+:: Settings FILE
+:: Task: Create the project mirror for ODD date
+:: Source directory
+/SD:C:\Users\Public\Documents\Shared Avid Projects
+:: destination directory
+:: /DD:.\LocalProjBackUPs
+/DD:Z:\ProjBackUPs000\ODD
+:: Excluded folders ONE BY ONE
+:: Attention! Excluded directories are NOT deleting
+:: from destination directory 
+:: /XD
+:: C:\Users\Public\Documents\Shared Avid Projects\TMP1
+:: C:\System Volume Information
+:: Log file
+/LOG:C:\JOBtask\ProjBackUP.log
+/TEE :: Output to Console and LOG
+/ETA :: Estimated time
+/NJH
+/NJS
+/NP :: Don't show the progress (%) for every file
+:: Copy options
+/MIR :: Create Mirror (MIRror)
+:: Error Retry
+/R:10 :: Retry Count
+/W:30 :: Retry time in seconds

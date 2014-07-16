@@ -8,6 +8,9 @@
 !/PowerShell/WindowsPowerShell/Modules/graphics/
 !/PowerShell/WindowsPowerShell/Modules/tools/
 !/PowerShell/WindowsPowerShell/Modules/video/
+!/Python/
+!/Python/AvidProjBackUP/
+!/Python/AvidProjBackUP/JOBtask/
 /PowerShell/*
 /PowerShell/GUI/*
 /PowerShell/GUI/FileRenamer/*
@@ -16,6 +19,9 @@
 /PowerShell/WindowsPowerShell/Modules/graphics/*
 /PowerShell/WindowsPowerShell/Modules/tools/*
 /PowerShell/WindowsPowerShell/Modules/video/*
+/Python/*
+/Python/AvidProjBackUP/*
+/Python/AvidProjBackUP/JOBtask/*
 !/PowerShell/Convert2.ps1
 !/PowerShell/BackupFiles.ps1
 !/PowerShell/ripDVD.ps1
@@ -29,5 +35,8 @@
 !/PowerShell/WindowsPowerShell/Modules/graphics/graphics.psm1
 !/PowerShell/WindowsPowerShell/Modules/tools/tools.psm1
 !/PowerShell/WindowsPowerShell/Modules/video/video.psm1
+!/Python/AvidProjBackUP/projectBackUP.py
+!/Python/AvidProjBackUP/JOBtask/ProjectBackup1.rcj
+!/Python/AvidProjBackUP/JOBtask/ProjectBackup2.rcj
 !/README.md
 .DS_Store

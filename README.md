@@ -62,6 +62,16 @@ Scripts description
    ***Important:*** WindowsPowerShell folder must be located inside your user Documents folder. Don't change the file names
    and folder structure.
 
+### Python folder
+
+* `projectBackUP.py`: (AvidProjBackUP folder) This script backup (mirror) the [Avid][avid] projects located in shared folder
+                    by Windows internal Robocopy (Robust File Copy for Windows) program. No additional modules required.<br>
+   **Note :** Two mirrors created in separate folders by current ODD or EVEN date.<br>
+   ***Requires :*** Python 2.7.7<br>
+   ***Important:*** JOBtask folder MUST be located as "C:\JOBtask" with two job task configuration files inside<br>
+                    ProjectBackup1.rcj and ProjectBackup2.rcj. They MUST be corrected for your purposes.<br>
+                    Read comments inside job task files.
+
 * `To be continued...`
 
 Your Questions - my Answers
@@ -116,3 +126,4 @@ send a Pull Request.
 [mkvmerge]:http://www.bunkus.org/videotools/mkvtoolnix/downloads.html
 [mkvextract]:http://www.bunkus.org/videotools/mkvtoolnix/downloads.html
 [mp4box]:http://gpac.sourceforge.net
+[avid]:http://www.avid.com
