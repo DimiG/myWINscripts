@@ -11,6 +11,7 @@
 !/Python/
 !/Python/AvidProjBackUP/
 !/Python/AvidProjBackUP/JOBtask/
+!/Python/Say/
 /PowerShell/*
 /PowerShell/GUI/*
 /PowerShell/GUI/FileRenamer/*
@@ -22,6 +23,7 @@
 /Python/*
 /Python/AvidProjBackUP/*
 /Python/AvidProjBackUP/JOBtask/*
+/Python/Say/*
 !/PowerShell/Convert2.ps1
 !/PowerShell/BackupFiles.ps1
 !/PowerShell/ripDVD.ps1
@@ -38,5 +40,7 @@
 !/Python/AvidProjBackUP/projectBackUP.py
 !/Python/AvidProjBackUP/JOBtask/ProjectBackup1.rcj
 !/Python/AvidProjBackUP/JOBtask/ProjectBackup2.rcj
+!/Python/Say/message.csv
+!/Python/Say/say.py
 !/README.md
 .DS_Store

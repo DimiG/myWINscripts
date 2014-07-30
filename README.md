@@ -67,10 +67,18 @@ Scripts description
 * `projectBackUP.py`: (AvidProjBackUP folder) This script backup (mirror) the [Avid][avid] projects located in shared folder
                     by Windows internal Robocopy (Robust File Copy for Windows) program. No additional modules required.<br>
    **Note :** Two mirrors created in separate folders by current ODD or EVEN date.<br>
-   ***Requires :*** Python 2.7.7<br>
+   ***Requires :*** Python 2.7.7, Microsoft Windows 7 and above<br>
    ***Important:*** JOBtask folder MUST be located as "C:\JOBtask" with two job task configuration files inside<br>
                     ProjectBackup1.rcj and ProjectBackup2.rcj. They MUST be corrected for your purposes.<br>
                     Read comments inside job task files.
+
+* `say.py`: (Say folder) This script demonstrate how to use COM components of Microsoft Speech API by Python.
+                    This script says the words from CSV file by voice of Microsoft Anna. The format for CSV file line by line is:<br>
+                    1. Sentence<br>
+                    2. Delay in seconds between next sentence<br>
+   **Note :** Two mirrors created in separate folders by current ODD or EVEN date.<br>
+   ***Requires :*** Python 2.7.7, Microsoft Windows 7 and above<br>
+   ***Important:*** The message.scv file MUST be located in the same folder as a script itself<br>
 
 * `To be continued...`
 
