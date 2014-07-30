@@ -74,9 +74,9 @@ Scripts description
 
 * `say.py`: (Say folder) This script demonstrate how to use COM components of Microsoft Speech API by Python.
                     This script says the words from CSV file by voice of Microsoft Anna. The format for CSV file line by line is:<br>
-                    1. Sentence<br>
+                    1. Sentence to say<br>
                     2. Delay in seconds between next sentence<br>
-   **Note :** Two mirrors created in separate folders by current ODD or EVEN date.<br>
+   **Note :** Microsoft Speech API need to be installed and function<br>
    ***Requires :*** Python 2.7.7, Microsoft Windows 7 and above<br>
    ***Important:*** The message.scv file MUST be located in the same folder as a script itself<br>
 
