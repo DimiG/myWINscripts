@@ -80,6 +80,12 @@ Scripts description
    ***Requires :*** Python 2.7.7, Microsoft Windows 7 and above<br>
    ***Important:*** The message.scv file MUST be located in the same folder as a script itself<br>
 
+* `example.spec`: (PyInstallCFG) This is an example of spec file for [PyInstaller][pyinstaller] (Windows executable file creator)
+                    The "Tree('data', prefix='data')" line allow to implement the data folder with files inside the executable<br>
+   **Note :** file_version_info.txt help to create the metadata inside the executable file<br>
+   ***Requires :*** Python 2.7.7, Microsoft Windows 7 and above, PyInstaller<br>
+   ***Important:*** Data folder (data) MUST be located in the same folder as spec file<br>
+
 * `To be continued...`
 
 Your Questions - my Answers
@@ -135,3 +141,4 @@ send a Pull Request.
 [mkvextract]:http://www.bunkus.org/videotools/mkvtoolnix/downloads.html
 [mp4box]:http://gpac.sourceforge.net
 [avid]:http://www.avid.com
+[pyinstaller]:http://www.pyinstaller.org
