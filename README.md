@@ -64,6 +64,11 @@ Scripts description
 
 ### Python folder
 
+* `pingTEST.py`: (SubProcess folder) This script just an example how to invoke the subprocess with CLI program 
+                    from Python code.<br>
+   **Note :** This scrip tested by Python 2.7.8 on [Synology][synology] platform.<br>
+   ***Requires :*** Python 2.7.8
+
 * `projectBackUP.py`: (AvidProjBackUP folder) This script backup (mirror) the [Avid][avid] projects located in shared folder
                     by Windows internal Robocopy (Robust File Copy for Windows) program. No additional modules required.<br>
    **Note :** Two mirrors created in separate folders by current ODD or EVEN date.<br>
