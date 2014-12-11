@@ -66,10 +66,10 @@ Scripts description
 
 * `AvidProjBackUP.py`: (AvidProjBAK2 folder) This script backup (ZIP) the [Avid][avid] projects located in Avid shared folder
                     on local hardrive to Avid video server which is located on virtual Z: disk.<br>
-   **Note :** This is a Windows platform specific script and MUST be changed for other platforms. The additional AvidProjBackUP.spec
+   **Note :** This is a Windows platform specific script and MUST be changed for other platforms. The additional AvidProjBackUP.spec,
                     file_version_info.txt and BackupFolder_128x128.ico needed for executable creating by [pyinstaller][pyinstaller].<br>
    ***Requires :*** [Python][python] 2.7.7 MSC v.1500 64 bit (AMD64) on win32, Microsoft Windows 7 and above, Cross-platform colored terminal
-                    text Python package([colorama][colorama]).<br>
+                    text Python package ([colorama][colorama]).<br>
    ***Important:*** The local Avid Projects usually located in "C:\Users\Public\Documents\Shared Avid Projects" by default.
                     The BackUP inside the ZIP archive pushing to "Z:\BackUP" folder on video server.
                     Read comments inside the script file for further information.
@@ -156,6 +156,6 @@ send a Pull Request.
 [mkvextract]:http://www.bunkus.org/videotools/mkvtoolnix/downloads.html
 [mp4box]:http://gpac.sourceforge.net
 [avid]:http://www.avid.com
-[pyinstaller]:http://www.pyinstaller.org
+[pyinstaller]:https://github.com/pyinstaller/pyinstaller/wiki
 [colorama]:http://pypi.python.org/pypi/colorama
 [python]:https://www.python.org
