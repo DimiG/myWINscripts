@@ -64,16 +64,26 @@ Scripts description
 
 ### Python folder
 
+* `AvidProjBackUP.py`: (AvidProjBAK2 folder) This script backup (ZIP) the [Avid][avid] projects located in Avid shared folder
+                    on local hardrive to Avid video server which is located on virtual Z: disk.<br>
+   **Note :** This is a Windows platform specific script and MUST be changed for other platforms. The additional AvidProjBackUP.spec
+                    file_version_info.txt and BackupFolder_128x128.ico needed for executable creating by [pyinstaller][pyinstaller].<br>
+   ***Requires :*** [Python][python] 2.7.7 MSC v.1500 64 bit (AMD64) on win32, Microsoft Windows 7 and above, Cross-platform colored terminal
+                    text Python package([colorama][colorama]).<br>
+   ***Important:*** The local Avid Projects usually located in "C:\Users\Public\Documents\Shared Avid Projects" by default.
+                    The BackUP inside the ZIP archive pushing to "Z:\BackUP" folder on video server.
+                    Read comments inside the script file for further information.
+
 * `pingTEST.py`: (SubProcess folder) This script just an example how to invoke the subprocess with CLI program 
                     from Python code.<br>
    **Note :** This script tested by Python 2.7.8 on [Synology][synology] platform.<br>
    ***Requires :*** Python 2.7.8
 
-* `projectBackUP.py`: (AvidProjBackUP folder) This script backup (mirror) the [Avid][avid] projects located in shared folder
+* `projectBackUP.py`: (AvidProjBAK1 folder) This script backup (mirror) the [Avid][avid] projects located in shared folder
                     by Windows internal Robocopy (Robust File Copy for Windows) program. No additional modules required.<br>
    **Note :** Two mirrors created in separate folders by current ODD or EVEN date.<br>
    ***Requires :*** Python 2.7.7, Microsoft Windows 7 and above<br>
-   ***Important:*** JOBtask folder MUST be located as "C:\JOBtask" with two job task configuration files inside<br>
+   ***Important:*** JOBtask folder MUST be located as "C:\JOBtask" with two job task configuration files inside
                     ProjectBackup1.rcj and ProjectBackup2.rcj. They MUST be corrected for your purposes.<br>
                     Read comments inside job task files.
 
@@ -147,3 +157,5 @@ send a Pull Request.
 [mp4box]:http://gpac.sourceforge.net
 [avid]:http://www.avid.com
 [pyinstaller]:http://www.pyinstaller.org
+[colorama]:http://pypi.python.org/pypi/colorama
+[python]:https://www.python.org
