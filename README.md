@@ -64,10 +64,9 @@ Scripts description
 
 ### Python folder
 
-* `sendMail.py`: (SendMail folder) This script is example how to send e-mails by Python script
-                    The CLASS uses just for fun.<br>
+* `sendMail.py`: (SendMail folder) This script is example how to send e-mails by Python script. The CLASS uses just for fun.<br>
    **Note :** No special rules to use it. Just read the comments and change the variables in this code to your needs.<br>
-   ***Requires :*** [Python][python] 2.7.7 MSC v.1500 64 bit (AMD64) on win32, Microsoft Windows 7 and above.<br>
+   ***Requires :*** [Python][python] 2.7.7 MSC v.1500 64 bit (AMD64) on win32, Microsoft Windows 7 and above.
 
 * `AvidProjBackUP.py`: (AvidProjBAK2 folder) This script backup (ZIP) the [Avid][avid] projects located in Avid shared folder
                     on local hardrive to Avid video server which is located on virtual Z: disk.<br>
