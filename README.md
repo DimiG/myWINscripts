@@ -3,7 +3,7 @@ myWINscripts
 This repository dedicated to myOWN Windows scripts I use for daily purposes.
 
 Repositories divided between Windows and Linux/Mac/UNIX scripts due to an incompatibility
-with special characters inside the text files and different encodings.
+with special characters inside the text files and different encoding.
 
 Scripts description
 -------------------
@@ -55,6 +55,12 @@ Scripts description
    ***Important:*** The icon file rename128x128.ico MUST be located same directory as FileRenamerGUI.ps1<br>
                     To start the script CREATE the link to script and ADD the code there<br>
                     `powershell.exe -sta -WindowStyle hidden -noprofile -nologo -command "C:\FileRenamerGUI.ps1"`
+
+* `RoboSync.ps1`: This script backup the huge amount of data from Avid Media server by Windows internal `Robocopy.exe` utility.<br> 
+                    You can use it with any other server also. The current script help with complex settings.<br>
+   ***Requires :*** PowerShell Version 4.0 or newer.<br>
+   ***Important:*** BE CAREFUL WITH DIRECTION OF SYNCING!!! You may LOSS data if incorrect Source/Destination path!<br>
+                    Get-Help for additional info.
 
 * `WindowsPowerShell`: My implementation of PowerShell modules.<br>
    **Note :** Please kindly read instructions inside modules. ;) This code may contain bugs.<br>
