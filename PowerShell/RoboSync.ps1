@@ -1,19 +1,26 @@
 ﻿<#
 .SYNOPSIS
+
 This script for Avid Media Server BackUP by internal Robocopy.exe
 
+Version: 1.0.2
+
 .DESCRIPTION
+
 Backup media from Avid Media Server by Windows Robocopy.exe util
 This scrypt is not fully tested and may work incorrectly.
 Russian localisation
 
 .NOTES
+
 File Name : RoboSync.ps1
 Author : Dmitri G. (2016) - dimi615@pisem.net
 Requires : PowerShell Version 4.0
+
 Be careful with sync direction. Mirror command may delete files.
 
 .LINK
+
 No any links. Internal use ;)
 
 .EXAMPLE
@@ -34,11 +41,27 @@ Dry run
 
 .EXAMPLE
 
-RoboSyn.ps1 -SourcePath -DestPath -Copy -Fast
+RoboSyn.ps1 -SourcePath -DestPath -Copy -Mode Fast
 
 Description
 -----------
 Multi-threaded fast copying
+
+.EXAMPLE
+
+RoboSyn.ps1 -SourcePath -DestPath -Copy -Mode SrvResume
+
+Description
+-----------
+Resume big files copy from BAD server
+
+.EXAMPLE
+
+RoboSyn.ps1 -SourcePath -DestPath -Copy -Mode SrvCopy
+
+Description
+-----------
+Copy files without Mirror (NO PURGE)
 
 #>
 
@@ -59,8 +82,9 @@ param(
 [Parameter(Mandatory=$true)]
 [string]$DestPath,
 [switch]$Copy,
-[switch]$Fast,
-[switch]$Log
+[ValidateSet("Server","SrvResume","SrvCopy","Normal","Fast","Log")]
+[string]$Mode="Normal",
+[string]$IPG="30"
 
 ) #end param
 
@@ -77,16 +101,50 @@ Clear-Host
 ########################################################################
 
 switch ($Copy)
-{ 
+{
     true
     {
         Write-Host "`nКопировка Файлов, ждите...`n`a" -ForegroundColor Red
-        if ($Log) { $strSwitches = ("/MIR", "/XJ", "/FFT", "/NP", "/R:7", "/TEE", "/LOG:$strLogfile") }
-        elseif ($Fast){ $strSwitches = ("/MIR", "/XJ", "/FFT", "/MT","/R:7", "/TEE") }
-        else { $strSwitches = ("/MIR", "/XJ", "/FFT", "/IPG:30","/R:7", "/TEE") }
+        switch ($Mode)
+        {
+            "Server"
+            {
+                $strSwitches = ("/MIR", "/XJ", "/FFT", "/IPG:$IPG", "/R:7", "/TEE")
+            }
+
+            "SrvResume"
+            {
+                $strSwitches = ("/MIR", "/Z", "/XJ", "/FFT", "/IPG:$IPG", "/R:13", "/TEE")
+            }
+
+            "SrvCopy"
+            {
+                $strSwitches = ("/E", "/XJ", "/FFT", "/IPG:$IPG", "/R:7", "/TEE")
+            }
+
+            "Normal"
+            {
+                $strSwitches = ("/MIR", "/XJ", "/FFT", "/R:7", "/TEE")
+            }
+
+            "Fast"
+            {
+                $strSwitches = ("/MIR", "/XJ", "/FFT", "/MT", "/R:7", "/TEE")
+            }
+
+            "Log"
+            {
+                $strSwitches = ("/MIR", "/XJ", "/FFT", "/NP", "/R:7", "/TEE", "/LOG:$strLogfile")
+            }
+
+            default
+            {
+                Write-Host "`nОшибочка вышла...`n" -ForegroundColor Red
+            }
+        }
     }
 
-    default 
+    default
     {
       Write-Host "`nНЕЧЕГО ДЕЛАТЬ, Просто демонстрация...`n" -ForegroundColor Magenta
       $strSwitches = ("/MIR", "/XJ", "/FFT", "/R:7", "/TEE", "/L")
@@ -96,3 +154,4 @@ switch ($Copy)
 & robocopy $SourcePath $DestPath $strSwitches
 
 Write-Host "`nКомманда выполнена, Спасибо!`n" -ForegroundColor Green
+
