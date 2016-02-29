@@ -3,7 +3,7 @@
 
 This script for Avid Media Server BackUP by internal Robocopy.exe
 
-Version: 1.0.2
+Version: 1.0.3
 
 .DESCRIPTION
 
@@ -16,7 +16,6 @@ Russian localisation
 File Name : RoboSync.ps1
 Author : Dmitri G. (2016) - dimi615@pisem.net
 Requires : PowerShell Version 4.0
-
 Be careful with sync direction. Mirror command may delete files.
 
 .LINK
@@ -61,7 +60,15 @@ RoboSyn.ps1 -SourcePath -DestPath -Copy -Mode SrvCopy
 
 Description
 -----------
-Copy files without Mirror (NO PURGE)
+Copy files without Mirror (NO PURGE) from Server
+
+.EXAMPLE
+
+RoboSyn.ps1 -SourcePath -DestPath -Copy -Mode NormalCopy
+
+Description
+-----------
+Copy files without Mirror (NO PURGE) locally
 
 #>
 
@@ -82,7 +89,7 @@ param(
 [Parameter(Mandatory=$true)]
 [string]$DestPath,
 [switch]$Copy,
-[ValidateSet("Server","SrvResume","SrvCopy","Normal","Fast","Log")]
+[ValidateSet("Server","SrvResume","SrvCopy","Normal","NormalCopy","Fast","Log")]
 [string]$Mode="Normal",
 [string]$IPG="30"
 
@@ -125,6 +132,11 @@ switch ($Copy)
             "Normal"
             {
                 $strSwitches = ("/MIR", "/XJ", "/FFT", "/R:7", "/TEE")
+            }
+
+            "NormalCopy"
+            {
+                $strSwitches = ("/E", "/XJ", "/FFT", "/R:7", "/TEE")
             }
 
             "Fast"
