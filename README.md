@@ -62,6 +62,11 @@ Scripts description
    ***Important:*** BE CAREFUL WITH DIRECTION OF SYNCING!!! You may LOSS data if incorrect Source/Destination path!<br>
                     Get-Help for additional info.
 
+* `ProResMaker_2016.ps1`: This script converts the video file to ProRes422 codec. It is useful in professional video facilities.<br> 
+                    Run `Get-Help ProResMaker_2016.ps1` for MORE information.<br>
+   ***Requires :*** PowerShell Version 4.0 or newer, [FFmpeg][ffmpeg].<br>
+   ***Important:*** [FFmpeg][ffmpeg] MUST be accessible for program to work!.
+
 * `WindowsPowerShell`: My implementation of PowerShell modules.<br>
    **Note :** Please kindly read instructions inside modules. ;) This code may contain bugs.<br>
    ***Requires :*** PowerShell Version 2.0<br>
