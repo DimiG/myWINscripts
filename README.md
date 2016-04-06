@@ -67,6 +67,11 @@ Scripts description
    ***Requires :*** PowerShell Version 4.0 or newer, [FFmpeg][ffmpeg].<br>
    ***Important:*** [FFmpeg][ffmpeg] MUST be accessible for program to work!.
 
+* `Eject.ps1`: This simple script Ejects the flash disk from Windows system.<br> 
+                    Run `Get-Help eject.ps1` for MORE information.<br>
+   ***Requires :*** PowerShell Version 4.0 or newer.<br>
+   ***Important:*** Just read the Help before start.
+
 * `WindowsPowerShell`: My implementation of PowerShell modules.<br>
    **Note :** Please kindly read instructions inside modules. ;) This code may contain bugs.<br>
    ***Requires :*** PowerShell Version 2.0<br>
