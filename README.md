@@ -72,11 +72,20 @@ Scripts description
    ***Requires :*** PowerShell Version 4.0 or newer.<br>
    ***Important:*** Just read the Help before start.
 
+* `EncAvidMXF_2016.ps1`: This script converts the video file to [Avid DNxHD][DNxHD] codec and add it into video [MXF][MXF] file format. It is useful in professional video facilities.<br>
+                    This script has been tested with [Avid Media Composer 7.0.4][avid_mc] (PC version).<br>
+                    Run `Get-Help EncAvidMXF_2016.ps1` for MORE information.<br>
+   ***Requires :*** PowerShell Version 4.0 or newer, [FFmpeg][ffmpeg] and [bmx-win32-exe-snapshot][bmx] for [MXF][MXF] writing.<br>
+   ***Important:*** [FFmpeg][ffmpeg] and [BMX][bmx] MUST be accessible for program to work!.
+
 * `WindowsPowerShell`: My implementation of PowerShell modules.<br>
    **Note :** Please kindly read instructions inside modules. ;) This code may contain bugs.<br>
    ***Requires :*** PowerShell Version 2.0<br>
    ***Important:*** WindowsPowerShell folder must be located inside your user Documents folder. Don't change the file names
    and folder structure.
+
+* `All Scripts`:
+   **Note :** Some scripts MAY HAVE the Russian localization in messages.
 
 ### Python folder
 
@@ -120,6 +129,9 @@ Scripts description
    **Note :** file_version_info.txt help to create the metadata inside the executable file<br>
    ***Requires :*** Python 2.7.7, Microsoft Windows 7 and above, PyInstaller<br>
    ***Important:*** Data folder (data) MUST be located in the same folder as spec file<br>
+
+* `All Scripts`:
+   **Note :** Some scripts MAY HAVE the Russian localization in messages.
 
 * `To be continued...`
 
@@ -179,3 +191,7 @@ send a Pull Request.
 [pyinstaller]:https://github.com/pyinstaller/pyinstaller/wiki
 [colorama]:http://pypi.python.org/pypi/colorama
 [python]:https://www.python.org
+[MXF]:https://en.wikipedia.org/wiki/Material_Exchange_Format
+[DNxHD]:https://en.wikipedia.org/wiki/DNxHD_codec
+[avid_mc]:https://en.wikipedia.org/wiki/Media_Composer
+[bmx]:https://sourceforge.net/projects/bmxlib/
