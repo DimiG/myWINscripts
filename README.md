@@ -78,6 +78,11 @@ Scripts description
    ***Requires :*** PowerShell Version 4.0 or newer, [FFmpeg][ffmpeg] and [bmx-win32-exe-snapshot][bmx] for [MXF][MXF] writing.<br>
    ***Important:*** [FFmpeg][ffmpeg] and [BMX][bmx] MUST be accessible for program to work!.
 
+* `ConvertDVD_2016.ps1`: This script converts DVD-VIDEO structure to MP4 video file or ISO image. It is useful for DVD-VIDEO discs grubbing.<br>
+                    Run `Get-Help ConvertDVD_2016.ps1` for MORE information.<br>
+   ***Requires :*** PowerShell Version 4.0 or newer, [FFmpeg][ffmpeg] and [HandBrake][handbrake]<br>
+   ***Important:*** [FFmpeg][ffmpeg] and [HandBrake][handbrake] MUST be accessible for program to work!.
+
 * `WindowsPowerShell`: My implementation of PowerShell modules.<br>
    **Note :** Please kindly read instructions inside modules. ;) This code may contain bugs.<br>
    ***Requires :*** PowerShell Version 2.0<br>
