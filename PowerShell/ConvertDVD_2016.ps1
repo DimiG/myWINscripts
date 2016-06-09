@@ -61,7 +61,8 @@ param(
 [Parameter(Mandatory=$true)]
 [string]$SourceFolder,
 [ValidateSet("ISO","MP4")]
-[string]$Mode="MP4"
+[string]$Mode="MP4",
+[string]$Title="1"
 
 ) #end param
 
@@ -81,7 +82,7 @@ switch ($Mode)
     "MP4"
     {
         $strCommand =  [string]::Concat(
-        "C:\bin\HandBrakeCLI.exe -i",
+        "HandBrakeCLI.exe -i",
         " ",
         $SourceFolder,
         " ",
@@ -89,7 +90,11 @@ switch ($Mode)
         " ",
         $OutputName1,
         " ",
-        "-t 1 -r 25 --cfr -d --crop 0:0:0:0 -b 4000 -B 160 -X 720 -e x264 -a 1 -E faac -6 dpl2 -R Auto -D 0.0 -f mp4",
+        "-t",
+        " ",
+        $Title,
+        " ",
+        "-r 25 --cfr -d --crop 0:0:0:0 -b 4000 -B 160 -X 720 -e x264 -a 1 -E faac -6 dpl2 -R Auto -D 0.0 -f mp4",
         " ",
         "--strict-anamorphic -x ref=2:bframes=2:subme=6:mixed-refs=0:weightb=0:8x8dct=0:trellis=0"
         )
@@ -98,7 +103,7 @@ switch ($Mode)
     "ISO"
     {
         $strCommand =  [string]::Concat(
-        "C:\bin\mkisofs.exe -dvd-video -o",
+        "mkisofs.exe -dvd-video -o",
         " ",
         $OutputName2,
         " ",
