@@ -83,6 +83,12 @@ Scripts description
    ***Requires :*** PowerShell Version 4.0 or newer, [FFmpeg][ffmpeg] and [HandBrake][handbrake]<br>
    ***Important:*** [FFmpeg][ffmpeg] and [HandBrake][handbrake] MUST be accessible for program to work!.
 
+* `EncMKV_2016.ps1`: Current script converts video file with multi-channel (5.1) audio to MKV (Matroska) format with multi-channel and stereo track.<br>
+                    In production facilities we use [ProRes][prores] with multi-channel audio.<br>
+                    Run `Get-Help EncMKV_2016.ps1` for MORE information.<br>
+   ***Requires :*** PowerShell Version 4.0 or newer, [FFmpeg][ffmpeg], [MKVmerge][mkvmerge] and [aften][aften] (A/52 audio encoder)<br>
+   ***Important:*** [FFmpeg][ffmpeg], [MKVmerge][mkvmerge] and [aften][aften] MUST be accessible in system PATH for program to work!.
+
 * `WindowsPowerShell`: My implementation of PowerShell modules.<br>
    **Note :** Please kindly read instructions inside modules. ;) This code may contain bugs.<br>
    ***Requires :*** PowerShell Version 2.0<br>
@@ -200,3 +206,5 @@ send a Pull Request.
 [DNxHD]:https://en.wikipedia.org/wiki/DNxHD_codec
 [avid_mc]:https://en.wikipedia.org/wiki/Media_Composer
 [bmx]:https://sourceforge.net/projects/bmxlib/
+[aften]:http://aften.sourceforge.net/
+[prores]:https://en.wikipedia.org/wiki/Apple_ProRes
