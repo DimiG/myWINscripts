@@ -89,6 +89,10 @@ Scripts description
    ***Requires :*** PowerShell Version 4.0 or newer, [FFmpeg][ffmpeg], [MKVmerge][mkvmerge] and [aften][aften] (A/52 audio encoder)<br>
    ***Important:*** [FFmpeg][ffmpeg], [MKVmerge][mkvmerge] and [aften][aften] MUST be accessible in system PATH for program to work!.
 
+* `PassGEN.ps1`: This script generate the passwords by [PowerShell][powershell].<br>
+                    Run `Get-Help PassGEN.ps1` for MORE information.<br>
+   ***Requires :*** [PowerShell][powershell] Version 5.0 or newer.
+
 * `WindowsPowerShell`: My implementation of PowerShell modules.<br>
    **Note :** Please kindly read instructions inside modules. ;) This code may contain bugs.<br>
    ***Requires :*** PowerShell Version 2.0<br>

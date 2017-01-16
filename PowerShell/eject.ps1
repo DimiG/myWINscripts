@@ -1,26 +1,26 @@
-﻿<# 
+﻿<#
  .Synopsis
    PowerShell Eject SCRIPT
    This script Eject the flash disk
-         
+
    *Note: This script in infinite developing and may not work correctly ;)
 
  .Description
    File Name : eject.ps1
    Author : Dmitri G. - dimi615@pisem.net
    Requires :  PowerShell Version 4.0
-   Important : 
-   
+   Important :
+
    This script posted to:
    http://github.com/dimig
 
  .Example
   eject.ps G:
-  
+
   Description
   -----------
   Eject the disk G:
-  
+
 #>
 
 ########################################################################
