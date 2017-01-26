@@ -3,7 +3,7 @@
 
 This script for ProRes making
 
-Version: 1.0.0
+Version: 1.0.1
 
 .DESCRIPTION
 
@@ -17,9 +17,9 @@ Russian localisation
 
 .NOTES
 
-File Name : ProResMaker_2016.ps1
-Author : Dmitri G. (2016) - dimi615@pisem.net
-Requires : PowerShell Version 4.0
+File Name : ProResMaker.ps1
+Author : Dmitri G. (2017) - dimi615@pisem.net
+Requires : PowerShell Version 5.0
 
 .LINK
 
@@ -27,7 +27,7 @@ No any links. Internal use ;)
 
 .EXAMPLE
 
-ProResMaker_2016.ps1 FileName -Mode LT -Deinterlace
+ProResMaker.ps1 FileName -Mode LT -Deinterlace
 
 Description
 -----------
@@ -36,7 +36,7 @@ Convert video file to ProRes422 LT with deinterlace
 #>
 
 ########################################################################
-# Created By: Dmitri G. (2016)
+# Created By: Dmitri G. (2017)
 ########################################################################
 
 # Turn on/off DEBUG reporting
@@ -60,6 +60,18 @@ param(
 ########################################################################
 # Variables SET
 ########################################################################
+
+# The help message output
+If (($SourceFile -Match "help") -or ($SourceFile -Match "--help") -or ($SourceFile -Match "/?")) {
+  Write-Host "`n*** Создание ProRes видео файла из исходника ***`n" -ForegroundColor Yellow
+  Write-Host "Варианты:" -ForegroundColor Yellow
+  Write-Host "---------" -ForegroundColor Yellow
+  Write-Host "> ProResMaker.ps1 FileName -Mode Proxy -Deinterlace" -ForegroundColor Yellow
+  Write-Host "> ProResMaker.ps1 FileName -Mode LT -Deinterlace" -ForegroundColor Yellow
+  Write-Host "> ProResMaker.ps1 FileName -Mode Normal -Deinterlace" -ForegroundColor Yellow
+  Write-Host "> ProResMaker.ps1 FileName -Mode HQ -Deinterlace`n`a" -ForegroundColor Yellow
+  Break
+}
 
 [string]$Prefix = ""
 [string]$NumMode = ""
