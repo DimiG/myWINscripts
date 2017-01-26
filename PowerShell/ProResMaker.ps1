@@ -62,7 +62,7 @@ param(
 ########################################################################
 
 # The help message output
-If (($SourceFile -Match "help") -or ($SourceFile -Match "--help") -or ($SourceFile -Match "/?")) {
+If ($SourceFile.Equals("--help") -or $SourceFile.Equals("/?")) {
   Write-Host "`n*** Создание ProRes видео файла из исходника ***`n" -ForegroundColor Yellow
   Write-Host "Варианты:" -ForegroundColor Yellow
   Write-Host "---------" -ForegroundColor Yellow
