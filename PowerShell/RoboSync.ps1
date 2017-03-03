@@ -3,7 +3,7 @@
 
 This script for Avid Media Server BackUP by internal Robocopy.exe
 
-Version: 1.0.3
+Version: 1.0.4
 
 .DESCRIPTION
 
@@ -14,7 +14,7 @@ Russian localisation
 .NOTES
 
 File Name : RoboSync.ps1
-Author : Dmitri G. (2016) - dimi615@pisem.net
+Author : Dmitri G. (2017) - dimi615@pisem.net
 Requires : PowerShell Version 4.0
 Be careful with sync direction. Mirror command may delete files.
 
@@ -86,7 +86,7 @@ Copy files without Mirror (NO PURGE) locally
 param(
 [Parameter(Mandatory=$true)]
 [string]$SourcePath,
-[Parameter(Mandatory=$true)]
+[Parameter(Mandatory=$false)]
 [string]$DestPath,
 [switch]$Copy,
 [ValidateSet("Server","SrvResume","SrvCopy","Normal","NormalCopy","Fast","Log")]
@@ -98,6 +98,19 @@ param(
 ########################################################################
 # Variables SET
 ########################################################################
+
+# The help message output
+If ($SourcePath.Equals("--help") -or $SourcePath.Equals("/?")) {
+  Write-Host "`n*** Надёжное копирование файлов ***`n" -ForegroundColor Yellow
+  Write-Host "Варианты:" -ForegroundColor Yellow
+  Write-Host "---------" -ForegroundColor Yellow
+  Write-Host "> RoboSync.ps1 -SourcePath -DestPath" -ForegroundColor Yellow
+  Write-Host "> RoboSync.ps1 -SourcePath -DestPath -Copy -Mode Fast" -ForegroundColor Yellow
+  Write-Host "> RoboSync.ps1 -SourcePath -DestPath -Copy -Mode SrvResume" -ForegroundColor Yellow
+  Write-Host "> RoboSync.ps1 -SourcePath -DestPath -Copy -Mode SrvCopy" -ForegroundColor Yellow
+  Write-Host "> RoboSync.ps1 -SourcePath -DestPath -Copy -Mode NormalCopy`n`a" -ForegroundColor Yellow
+  Break
+}
 
 [string]$strLogfile = "RoboSyncLog.txt"
 
