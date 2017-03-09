@@ -60,15 +60,20 @@ process {
 function update {
 
   try {
+    [string[]]$argList = @('-NoExit')
+
     if ($start) {
-      Write-Host "`nSetup Windows Updates...`a"  -ForegroundColor Yellow
-      Get-WUInstall -NotCategory "Language packs" -NotTitle Skype -AcceptAll -IgnoreReboot
+      $argList += "Write-Host '`nSetup Windows Updates... Please Wait...`a' -ForegroundColor Yellow; "
+      $argList += "Get-WUInstall -NotCategory 'Language packs' -NotTitle Skype -AcceptAll -IgnoreReboot"
     } else {
-      Write-Host "`nList Windows Updates... Wait Please..." -ForegroundColor Green
-      Get-WUInstall -ListOnly
-      }
+      $argList += "Write-Host '`nList Windows Updates... Please Wait...' -ForegroundColor Green; "
+      $argList += "Get-WUInstall -ListOnly"
+    }
+
+    & Start-Process PowerShell.exe -Verb Runas -ArgumentList $argList
+
     } catch {
-      Write-Host "Did U install Windows Update PowerShell Module?!!"
+      Write-Host "`nDid U install Windows Update PowerShell Module?!!`n`a" -ForegroundColor Red
     }
 }
 
