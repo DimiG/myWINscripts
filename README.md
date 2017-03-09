@@ -58,12 +58,14 @@ Scripts description
 
 * `RoboSync.ps1`: This script backup the huge amount of data from Avid Media server by Windows internal `Robocopy.exe` utility.<br> 
                     You can use it with any other server also. The current script help with complex settings.<br>
+   **Note :**       Available via [scoop][scoop] and [dgbucket][dgbucket]<br>
    ***Requires :*** PowerShell Version 4.0 or newer.<br>
    ***Important:*** BE CAREFUL WITH DIRECTION OF SYNCING!!! You may LOSS data if incorrect Source/Destination path!<br>
                     Get-Help for additional info.
 
 * `ProResMaker_2016.ps1`: This script converts the video file to ProRes422 codec. It is useful in professional video facilities.<br> 
                     Run `Get-Help ProResMaker_2016.ps1` for MORE information.<br>
+   **Note :**       Available via [scoop][scoop] and [dgbucket][dgbucket]<br>
    ***Requires :*** PowerShell Version 4.0 or newer, [FFmpeg][ffmpeg].<br>
    ***Important:*** [FFmpeg][ffmpeg] MUST be accessible for program to work!.
 
@@ -91,7 +93,15 @@ Scripts description
 
 * `PassGEN.ps1`: This script generate the passwords by [PowerShell][powershell].<br>
                     Run `Get-Help PassGEN.ps1` for MORE information.<br>
+   **Note :**       Available via [scoop][scoop] and [dgbucket][dgbucket]<br>
    ***Requires :*** [PowerShell][powershell] Version 5.0 or newer.
+
+* `PSWinUpdate.ps1`: This script help to install updates on Windows platform from [PowerShell][powershell].<br>
+                    Run `Get-Help PSWinUpdate.ps1` or `PSWinUpdate.ps1 /?` for MORE information.<br>
+   **Note :**       Available via [scoop][scoop] and [dgbucket][dgbucket]<br>
+   ***Requires :*** [PowerShell][powershell] Version 4.0 or newer, [Windows Update PowerShell Module][pswinupd].<br>
+   ***Important:*** Windows Update [PowerShell][powershell] Module CAN be located in: `%WINDIR%\System32\WindowsPowerShell\v1.0\Modules`<br>
+                    Importing the module by: `PS > Import-Module PSWindowsUpdate`
 
 * `WindowsPowerShell`: My implementation of PowerShell modules.<br>
    **Note :** Please kindly read instructions inside modules. ;) This code may contain bugs.<br>
@@ -212,3 +222,6 @@ send a Pull Request.
 [bmx]:https://sourceforge.net/projects/bmxlib/
 [aften]:http://aften.sourceforge.net/
 [prores]:https://en.wikipedia.org/wiki/Apple_ProRes
+[scoop]:http://scoop.sh
+[dgbucket]:https://github.com/DimiG/dgBucket
+[pswinupd]:https://gallery.technet.microsoft.com/scriptcenter/2d191bcd-3308-4edd-9de2-88dff796b0bc
