@@ -100,7 +100,8 @@ Scripts description
                     Run `Get-Help PSWinUpdate.ps1` or `PSWinUpdate.ps1 /?` for MORE information.<br>
    **Note :**       Available via [scoop][scoop] and [dgbucket][dgbucket]<br>
    ***Requires :*** [PowerShell][powershell] Version 4.0 or newer, [Windows Update PowerShell Module][pswinupd].<br>
-   ***Important:*** Windows Update [PowerShell][powershell] Module CAN be located in: `%WINDIR%\System32\WindowsPowerShell\v1.0\Modules`<br>
+   ***Important:*** Windows Update [PowerShell][powershell] Module CAN be located in:<br>
+                    `C:\Windows\System32\WindowsPowerShell\v1.0\Modules`<br>
                     Importing the module by: `PS > Import-Module PSWindowsUpdate`
 
 * `WindowsPowerShell`: My implementation of PowerShell modules.<br>
