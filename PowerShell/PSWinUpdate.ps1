@@ -3,7 +3,7 @@
 
 This script help install the Windows Updates
 
-Version: 1.0.1
+Version: 1.0.2
 
 .DESCRIPTION
 
@@ -38,6 +38,14 @@ Description
 -----------
 List Windows Updates...
 
+.EXAMPLE
+
+PSWinUpdate.ps1 /?
+
+Description
+-----------
+Get short HELP...
+
 #>
 
 ########################################################################
@@ -47,7 +55,7 @@ List Windows Updates...
 param(
     [parameter(Mandatory=$false)]
     [string]$option,
-    [switch]$start
+    [switch]$setup
 
 ) #end param
 
@@ -65,7 +73,7 @@ If ($option.Equals("--help") -or $option.Equals("/?")) {
   Write-Host "`n"
   Write-Host "  Usage:" -ForegroundColor Cyan
   Write-Host "  ------" -ForegroundColor Cyan
-  Write-Host -NoNewline "> PSWinUpdate.ps1 -start" -ForegroundColor Yellow
+  Write-Host -NoNewline "> PSWinUpdate.ps1 -setup" -ForegroundColor Yellow
   Write-Host "  # Setup Microsoft Updates" -ForegroundColor Cyan
   Write-Host -NoNewline "> PSWinUpdate.ps1" -ForegroundColor Yellow
   Write-Host "  # List Microsoft Updates" -ForegroundColor Cyan
@@ -88,44 +96,66 @@ If ($option.Equals("--help") -or $option.Equals("/?")) {
 [string]$strMessage1 = "Write-Host '`nSetup Windows Updates... Please Wait...`a' -ForegroundColor Yellow; "
 [string]$strMessage2 = "Write-Host '`nList Windows Updates... Please Wait...' -ForegroundColor Green; "
 
-[string]$strCommand1 = "Get-WUInstall -NotCategory 'Language packs' -NotTitle Skype -AcceptAll –MicrosoftUpdate -IgnoreReboot"
-[string]$strCommand2 = "Get-WUInstall –MicrosoftUpdate -ListOnly"
+[string]$strCommand0 = "PowerShell -Command Import-Module PSWindowsUpdate; "
+[string]$strCommand1 = "Get-WUInstall -NotCategory 'Language packs' -NotTitle Skype -AcceptAll -IgnoreReboot"
+[string]$strCommand2 = "Get-WUInstall -ListOnly"
 
 [string[]]$argList = @('-NoExit')
 
-if ($start) { $argList += $strMessage1 + $strCommand1 } else { $argList += $strMessage2 + $strCommand2 }
+if ($setup) {
+
+  $argList += $strMessage1 + $strCommand0 + $strCommand1
+
+} else {
+
+  $argList += $strMessage2 + $strCommand0 + $strCommand2
+
+}
 
 ########################################################################
 # Functions
 ########################################################################
 
 function exception {
-    Write-Host "`nDid U install Windows Update PowerShell Module?!!`n`a" -ForegroundColor Red
+
+  Write-Host "`nDid U install Windows Update PowerShell Module?!!`n`a" -ForegroundColor Red
+
+}
+
+function IsAdministrator {
+
+  $user = [Security.Principal.WindowsIdentity]::GetCurrent();
+  (New-Object Security.Principal.WindowsPrincipal $user).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
+
 }
 
 function IsUacEnabled {
-    (Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System).EnableLua -ne 0
+
+  (Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System).EnableLua -ne 0
 }
 
-function updateUAC {
+function updateAsUAC {
 
   Write-Debug "`nUAC enabled"
   try { & Start-Process PowerShell.exe -Verb Runas -ArgumentList $argList } catch { exception }
 
 }
 
-function update {
+function updateASadmin {
 
-    Write-Debug "`nUAC disabled"
+  Write-Debug "`nForce Admin"
+  try { & Start-Process PowerShell.exe -Credential Admin -ArgumentList $argList } catch { exception }
+
+}
+
+function update {
 
   try {
 
-    if ($start) {
-      # Write-Host $strMessage1 -ForegroundColor Yellow
+    if ($setup) {
       Invoke-Expression -Command:$strMessage1
       Invoke-Expression -Command:$strCommand1
     } else {
-      # Write-Host $strMessage2 -ForegroundColor Green
       Invoke-Expression -Command:$strMessage2
       Invoke-Expression -Command:$strCommand2
     }
@@ -137,6 +167,16 @@ function update {
 # Program START HERE
 ########################################################################
 
-if (IsUacEnabled) { updateUAC } else { update }
+if (IsAdministrator) {
+
+  Write-Debug "`nI'm administrator"
+  update
+
+} else {
+
+  Write-Debug "`nI'm NOT administrator"
+  if (IsUacEnabled) { updateAsUAC } else { updateASadmin }
+
+}
 
 }
