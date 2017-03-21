@@ -69,6 +69,12 @@ Scripts description
    ***Requires :*** PowerShell Version 4.0 or newer, [FFmpeg][ffmpeg].<br>
    ***Important:*** [FFmpeg][ffmpeg] MUST be accessible for program to work!.
 
+* `ProResCreator.ps1`: One more script implementation for ProRes422 video files encoding. It is useful in professional video facilities.<br>
+                    Run `Get-Help ProResCreator.ps1` or `ProResCreator.ps1 /?` for MORE information.<br>
+   **Note :**       Available via [scoop][scoop] and [dgbucket][dgbucket]<br>
+   ***Requires :*** PowerShell Version 4.0 or newer, [ffmbc][ffmbc].<br>
+   ***Important:*** [ffmbc][ffmbc] can be installed via [scoop][scoop] and [dgbucket][dgbucket].
+
 * `Eject.ps1`: This simple script Ejects the flash disk from Windows system.<br> 
                     Run `Get-Help eject.ps1` for MORE information.<br>
    ***Requires :*** PowerShell Version 4.0 or newer.<br>
@@ -226,3 +232,4 @@ send a Pull Request.
 [scoop]:http://scoop.sh
 [dgbucket]:https://github.com/DimiG/dgBucket
 [pswinupd]:https://gallery.technet.microsoft.com/scriptcenter/2d191bcd-3308-4edd-9de2-88dff796b0bc
+[ffmbc]:https://www.videohelp.com/software/ffmbc
