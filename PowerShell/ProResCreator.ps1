@@ -3,7 +3,7 @@
 
 This script for video files creating in ProRes codec
 
-Version: 1.0.0
+Version: 1.0.1
 
 .DESCRIPTION
 
@@ -31,6 +31,14 @@ Convert video files in folder to ProRes422
 
 .EXAMPLE
 
+ProResCreator.ps1 -Cores 12
+
+Description
+-----------
+Convert video files with processor core numbers
+
+.EXAMPLE
+
 ProResCreator.ps1 /?
 
 Description
@@ -45,7 +53,7 @@ Get short HELP...
 
 param(
 [Parameter(Mandatory=$false)]
-[string]$SourceFile
+[string]$Cores = "4"
 
 ) #end param
 
@@ -59,21 +67,23 @@ process {
 ########################################################################
 
 # The help message output
-If ($SourceFile.Equals("--help") -or $SourceFile.Equals("/?")) {
+If ($Cores.Equals("--help") -or $Cores.Equals("/?")) {
   Write-Host "`n*** Создание ProRes видео файла из исходника ***`n" -ForegroundColor Yellow
   Write-Host "  Варианты:" -ForegroundColor Yellow
   Write-Host "  ---------" -ForegroundColor Yellow
   Write-Host -NoNewline "> ProResCreator.ps1" -ForegroundColor Yellow
   Write-Host "  # Кодирует все MOV файлы в текущей папке в ProRes" -ForegroundColor Cyan
+  Write-Host -NoNewline "> ProResCreator.ps1 -Cores 12"  -ForegroundColor Yellow
+  Write-Host "  # Кодирует все MOV файлы на 12 ядрах процессора" -ForegroundColor Cyan
   Write-Host "`n`a"
   Break
 }
 
 [string[]]$vFiles=@("*.mov")
 
-$strMessage1 = "Write-Host -NoNewline '`nКодирование файлов ProRes 422, ждите... ' -ForegroundColor Magenta"
-$strMessage2 = "Write-Host '`nКодирование выполнено, Спасибо!`n`a' -ForegroundColor Green"
-$folderName = "ProRes422"
+[string]$strMessage1 = "Write-Host -NoNewline '`nКодирование файлов ProRes 422, ждите... ' -ForegroundColor Magenta"
+[string]$strMessage2 = "Write-Host '`nКодирование выполнено, Спасибо!`n`a' -ForegroundColor Green"
+[string]$folderName = "ProRes422"
 
 ########################################################################
 # Functions
@@ -105,9 +115,9 @@ function Convert2ProRes {
       if (!(test-path $destname)) {
         Write-Host "Обрабатываю: $($file.BaseName)" -ForegroundColor Magenta
 
-        $strCommand1 = "ffmbc -i '$file' -vcodec prores -pix_fmt yuv422p10 -acodec copy -timecode 00:10:00:00 '$destname'"
+        $strCommand1 = "ffmbc -i '$file' -vcodec prores -pix_fmt yuv422p10 -acodec copy -threads $Cores -timecode 00:10:00:00 '$destname'"
 
-        Write-Debug $destname
+        Write-Debug $strCommand1
 
         Invoke-Expression -Command:$strCommand1
 
