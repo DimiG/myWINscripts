@@ -1,9 +1,9 @@
-<#
+п»ї<#
 .SYNOPSIS
 
 This script for video files creating in ProRes codec
 
-Version: 1.0.1
+Version: 1.0.2
 
 .DESCRIPTION
 
@@ -39,6 +39,14 @@ Convert video files with processor core numbers
 
 .EXAMPLE
 
+ProResCreator.ps1 -Quality hq
+
+Description
+-----------
+Convert video files with good quality (ProRes422 HQ)
+
+.EXAMPLE
+
 ProResCreator.ps1 /?
 
 Description
@@ -53,7 +61,9 @@ Get short HELP...
 
 param(
 [Parameter(Mandatory=$false)]
-[string]$Cores = "4"
+[string]$Cores = "4",
+[ValidateSet("proxy","lt","std","hq")]
+[string]$Quality = "proxy"
 
 ) #end param
 
@@ -68,21 +78,23 @@ process {
 
 # The help message output
 If ($Cores.Equals("--help") -or $Cores.Equals("/?")) {
-  Write-Host "`n*** Создание ProRes видео файла из исходника ***`n" -ForegroundColor Yellow
-  Write-Host "  Варианты:" -ForegroundColor Yellow
+  Write-Host "`n*** РЎРѕР·РґР°РЅРёРµ ProRes РІРёРґРµРѕ С„Р°Р№Р»Р° РёР· РёСЃС…РѕРґРЅРёРєР° ***`n" -ForegroundColor Yellow
+  Write-Host "  Р’Р°СЂРёР°РЅС‚С‹:" -ForegroundColor Yellow
   Write-Host "  ---------" -ForegroundColor Yellow
   Write-Host -NoNewline "> ProResCreator.ps1" -ForegroundColor Yellow
-  Write-Host "  # Кодирует все MOV файлы в текущей папке в ProRes" -ForegroundColor Cyan
+  Write-Host "  # РљРѕРґРёСЂСѓРµС‚ РІСЃРµ MOV С„Р°Р№Р»С‹ РІ С‚РµРєСѓС‰РµР№ РїР°РїРєРµ РІ ProRes" -ForegroundColor Cyan
   Write-Host -NoNewline "> ProResCreator.ps1 -Cores 12"  -ForegroundColor Yellow
-  Write-Host "  # Кодирует все MOV файлы на 12 ядрах процессора" -ForegroundColor Cyan
+  Write-Host "  # РљРѕРґРёСЂСѓРµС‚ РІСЃРµ MOV С„Р°Р№Р»С‹ РЅР° 12 СЏРґСЂР°С… РїСЂРѕС†РµСЃСЃРѕСЂР°" -ForegroundColor Cyan
+  Write-Host -NoNewline "> ProResCreator.ps1 -Quality hq"  -ForegroundColor Yellow
+  Write-Host "  # РљРѕРґРёСЂСѓРµС‚ РІСЃРµ MOV С„Р°Р№Р»С‹ СЃ РєР°С‡РµСЃС‚РІРѕРј ProRes422 HQ" -ForegroundColor Cyan
   Write-Host "`n`a"
   Break
 }
 
 [string[]]$vFiles=@("*.mov")
 
-[string]$strMessage1 = "Write-Host -NoNewline '`nКодирование файлов ProRes 422, ждите... ' -ForegroundColor Magenta"
-[string]$strMessage2 = "Write-Host '`nКодирование выполнено, Спасибо!`n`a' -ForegroundColor Green"
+[string]$strMessage1 = "Write-Host -NoNewline '`nРљРѕРґРёСЂРѕРІР°РЅРёРµ С„Р°Р№Р»РѕРІ ProRes 422, Р¶РґРёС‚Рµ... ' -ForegroundColor Magenta"
+[string]$strMessage2 = "Write-Host '`nРљРѕРґРёСЂРѕРІР°РЅРёРµ РІС‹РїРѕР»РЅРµРЅРѕ, РЎРїР°СЃРёР±Рѕ!`n`a' -ForegroundColor Green"
 [string]$folderName = "ProRes422"
 
 ########################################################################
@@ -113,9 +125,9 @@ function Convert2ProRes {
       $destname = $folderName + "\" + $file.BaseName + "_ProRes1080p.mov"
 
       if (!(test-path $destname)) {
-        Write-Host "Обрабатываю: $($file.BaseName)" -ForegroundColor Magenta
+        Write-Host "РћР±СЂР°Р±Р°С‚С‹РІР°СЋ: $($file.BaseName)" -ForegroundColor Magenta
 
-        $strCommand1 = "ffmbc -i '$file' -vcodec prores -pix_fmt yuv422p10 -acodec copy -threads $Cores -timecode 00:10:00:00 '$destname'"
+        $strCommand1 = "ffmbc -i '$file' -vcodec prores -pix_fmt yuv422p10 -acodec copy -profile $Quality -threads $Cores -timecode 00:10:00:00 '$destname'"
 
         Write-Debug $strCommand1
 
