@@ -3,7 +3,7 @@
 
 This script for video files creating in ProRes codec
 
-Version: 1.0.2
+Version: 1.0.3
 
 .DESCRIPTION
 
@@ -122,7 +122,7 @@ function Convert2ProRes {
 
     # Collect the FILES
     foreach ($file in $files) {
-      $destname = $folderName + "\" + $file.BaseName + "_ProRes1080p.mov"
+      $destname = $folderName + "\" + $file.BaseName + "_ProRes422.mov"
 
       if (!(test-path $destname)) {
         Write-Host "Обрабатываю: $($file.BaseName)" -ForegroundColor Magenta
