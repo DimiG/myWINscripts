@@ -56,14 +56,14 @@ Scripts description
                     To start the script CREATE the link to script and ADD the code there<br>
                     `powershell.exe -sta -WindowStyle hidden -noprofile -nologo -command "C:\FileRenamerGUI.ps1"`
 
-* `RoboSync.ps1`: This script backup the huge amount of data from Avid Media server by Windows internal `Robocopy.exe` utility.<br> 
+* `RoboSync.ps1`: This script backup the huge amount of data from Avid Media server by Windows internal `Robocopy.exe` utility.<br>
                     You can use it with any other server also. The current script help with complex settings.<br>
    **Note :**       Available via [scoop][scoop] and [dgbucket][dgbucket]<br>
    ***Requires :*** PowerShell Version 4.0 or newer.<br>
    ***Important:*** BE CAREFUL WITH DIRECTION OF SYNCING!!! You may LOSS data if incorrect Source/Destination path!<br>
                     Get-Help for additional info.
 
-* `ProResMaker_2016.ps1`: This script converts the video file to ProRes422 codec. It is useful in professional video facilities.<br> 
+* `ProResMaker_2016.ps1`: This script converts the video file to ProRes422 codec. It is useful in professional video facilities.<br>
                     Run `Get-Help ProResMaker_2016.ps1` for MORE information.<br>
    **Note :**       Available via [scoop][scoop] and [dgbucket][dgbucket]<br>
    ***Requires :*** PowerShell Version 4.0 or newer, [FFmpeg][ffmpeg].<br>
@@ -75,7 +75,7 @@ Scripts description
    ***Requires :*** PowerShell Version 4.0 or newer, [ffmbc][ffmbc].<br>
    ***Important:*** [ffmbc][ffmbc] can be installed via [scoop][scoop] and [dgbucket][dgbucket].
 
-* `Eject.ps1`: This simple script Ejects the flash disk from Windows system.<br> 
+* `Eject.ps1`: This simple script Ejects the flash disk from Windows system.<br>
                     Run `Get-Help eject.ps1` for MORE information.<br>
    ***Requires :*** PowerShell Version 4.0 or newer.<br>
    ***Important:*** Just read the Help before start.
@@ -135,7 +135,7 @@ Scripts description
                     The BackUP inside the ZIP archive pushing to "Z:\BackUP" folder on video server.
                     Read comments inside the script file for further information.
 
-* `pingTEST.py`: (SubProcess folder) This script just an example how to invoke the subprocess with CLI program 
+* `pingTEST.py`: (SubProcess folder) This script just an example how to invoke the subprocess with CLI program
                     from Python code.<br>
    **Note :** This script tested by Python 2.7.8 on [Synology][synology] platform.<br>
    ***Requires :*** Python 2.7.8
@@ -161,6 +161,15 @@ Scripts description
    **Note :** file_version_info.txt help to create the metadata inside the executable file<br>
    ***Requires :*** Python 2.7.7, Microsoft Windows 7 and above, PyInstaller<br>
    ***Important:*** Data folder (data) MUST be located in the same folder as spec file<br>
+
+* `All Scripts`:
+   **Note :** Some scripts MAY HAVE the Russian localization in messages.
+
+### CMD folder
+
+* `mov2mp4.cmd`: This Windows [CMD][cmd] script change the video container from MOV to MP4.<br>
+   **Note :** Run this script where your MOV files located. It will automatically convert one by one to MP4.<br>
+   ***Requires :*** [FFmpeg][ffmpeg] MUST be accessible in your system for program to work!.<br>
 
 * `All Scripts`:
    **Note :** Some scripts MAY HAVE the Russian localization in messages.
@@ -233,3 +242,4 @@ send a Pull Request.
 [dgbucket]:https://github.com/DimiG/dgBucket
 [pswinupd]:https://gallery.technet.microsoft.com/scriptcenter/2d191bcd-3308-4edd-9de2-88dff796b0bc
 [ffmbc]:https://www.videohelp.com/software/ffmbc
+[cmd]:https://en.wikipedia.org/wiki/Cmd.exe
