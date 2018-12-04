@@ -3,7 +3,7 @@
 :: Convert MOV files to MP4
 
 :: ########################################################################
-:: # Created By: Dmitri G. (2018)
+:: # Created By: Dmitri G. (2019)
 :: ########################################################################
 
 :: This block for annotation
@@ -11,7 +11,8 @@ ECHO.
 ECHO .......................................
 ECHO .      Convert MOV files to MP4       .
 ECHO .                720p                 .
-ECHO .      Created By: DimiG (2018)       .
+ECHO .      Created By: DimiG (2019)       .
+ECHO .               v0.0.2                .
 ECHO .......................................
 ECHO.
 
@@ -37,7 +38,7 @@ GOTO :EOF
 
 :usage
 ECHO.
-ECHO Usage: RUN mov2mp4_hb.cmd inside the folder
+ECHO Usage: RUN mov2mp4-hb.cmd inside the folder
 ECHO where  MOV video files you want to convert
 ECHO.
 

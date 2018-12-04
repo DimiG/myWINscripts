@@ -167,13 +167,9 @@ Scripts description
 
 ### CMD folder
 
-* `mov2mp4.cmd`: This Windows [CMD][cmd] script change the video container from MOV to MP4.<br>
+* `mov2mp4-hb.cmd`: This Windows [CMD][cmd] script convert the video file from MOV to H264 MP4 720p format.<br>
    **Note :** Run this script where your MOV files located. It will automatically convert one by one to MP4.<br>
-   ***Requires :*** [FFmpeg][ffmpeg] MUST be accessible in your system for program to work!.<br>
-
-* `mov2mp4_hb.cmd`: This Windows [CMD][cmd] script convert the video file from MOV to H264 MP4 720p formet.<br>
-   **Note :** Run this script where your MOV files located. It will automatically convert one by one to MP4.<br>
-   ***Requires :*** [Handbrake-cli][handbrake] MUST be accessible in your system for program to work!.<br>
+   ***Requires :*** [Handbrake-cli][handbrake] MUST be accessible in your system for program to work!<br>
 
 * `All Scripts`:
    **Note :** Some scripts MAY HAVE the Russian localization in messages.
@@ -182,7 +178,7 @@ Scripts description
 
 ### License
 
-These code may be COPYRIGHT PROTECTED by ©2018 DimiG
+These code may be COPYRIGHT PROTECTED by ©2019 DimiG
 
 [homepage]:http://dimig.blogspot.com
 [dimig]:http://dimig.blogspot.com
