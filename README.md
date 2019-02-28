@@ -97,18 +97,24 @@ Scripts description
    ***Requires :*** PowerShell Version 4.0 or newer, [FFmpeg][ffmpeg], [MKVmerge][mkvmerge] and [aften][aften] (A/52 audio encoder)<br>
    ***Important:*** [FFmpeg][ffmpeg], [MKVmerge][mkvmerge] and [aften][aften] MUST be accessible in system PATH for program to work!.
 
-* `PassGEN.ps1`: This script generate the passwords by [PowerShell][powershell].<br>
+* `PassGEN.ps1`: This script generates the passwords by [PowerShell][powershell].<br>
                     Run `Get-Help PassGEN.ps1` for MORE information.<br>
    **Note :**       Available via [scoop][scoop] and [dgbucket][dgbucket]<br>
    ***Requires :*** [PowerShell][powershell] Version 5.0 or newer.
 
-* `PSWinUpdate.ps1`: This script help to install updates on Windows platform from [PowerShell][powershell].<br>
+* `PSWinUpdate.ps1`: This script helps to install updates on Windows platform from [PowerShell][powershell].<br>
                     Run `Get-Help PSWinUpdate.ps1` or `PSWinUpdate.ps1 /?` for MORE information.<br>
    **Note :**       Available via [scoop][scoop] and [dgbucket][dgbucket]<br>
    ***Requires :*** [PowerShell][powershell] Version 4.0 or newer, [Windows Update PowerShell Module][pswinupd].<br>
    ***Important:*** Windows Update [PowerShell][powershell] Module CAN be located in:<br>
                     `C:\Windows\System32\WindowsPowerShell\v1.0\Modules`<br>
                     Importing the module by: `PS > Import-Module PSWindowsUpdate`
+
+* `WinSYSbackUp.ps1`: Current script helps to create the Windows System Backup for emergency purposes.<br>
+                    Run `Get-Help WinSYSbackUp.ps1` or `WinSYSbackUp.ps1 /?` for MORE information.<br>
+   **Note :**       Available via [scoop][scoop] and [dgbucket][dgbucket]<br>
+   ***Requires :*** [PowerShell][powershell] Version 4.0 or newer.<br>
+   ***Important:*** Assumes that computer uses disk C: as system drive by default.
 
 * `WindowsPowerShell`: My implementation of PowerShell modules.<br>
    **Note :** Please kindly read instructions inside modules. ;) This code may contain bugs.<br>
