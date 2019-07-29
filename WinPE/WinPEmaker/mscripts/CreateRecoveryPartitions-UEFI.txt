@@ -1,0 +1,22 @@
+rem == CreateRecoveryPartitions-UEFI.txt ==
+rem == Find and label the Windows partition
+rem ** This script assumes the partition layout from 
+rem    CreatePartitions-UEFI or CreatePartitions-UEFI-FFU
+select disk 0
+select partition 3
+assign letter="W"
+rem == Extend the Windows partition 
+extend
+rem == Create space for the recovery tools  
+rem ** Update this size to match the size of
+rem    the recovery tools (winre.wim)
+rem    plus some free space.
+shrink minimum=500
+rem == Create recovery partition
+create partition primary
+format quick fs=ntfs label="Recovery"
+assign letter="R"
+set id="de94bba4-06d1-4d40-a16a-bfd50179d6ac"
+gpt attributes=0x8000000000000001
+list volume
+exit

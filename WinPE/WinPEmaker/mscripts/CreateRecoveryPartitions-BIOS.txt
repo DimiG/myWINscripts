@@ -1,0 +1,22 @@
+rem == CreateRecoveryPartitions-BIOS.txt ==
+rem == Find and label the Windows partition
+rem ** This script assumes the partition layout from 
+rem    CreatePartitions-BIOS or CreatePartitions-BIOS-FFU
+select disk 0
+select partition 2
+assign letter="W"
+rem == Extend the Windows partition ==
+shrink minimum=500
+extend
+rem == Create space for the recovery tools  
+rem ** Update this size to match the size of the 
+rem    recovery tools (winre.wim), plus some free space.
+shrink minimum=500
+rem == Prepare the recovery partition ====== 
+select disk 0
+create partition primary
+format quick fs=ntfs label="Recovery image"
+assign letter="R"
+set id=27
+list volume
+exit

@@ -1,0 +1,15 @@
+rem == Create-VHDX.txt ==
+rem == These commands are used with DiskPart to
+rem    create VHDX disk ==
+
+rem == 1. Create and format Virtual DISK ====================
+
+create vdisk file="C:\VHD\WinPE_amd64_ps.vhdx" maximum=1000
+
+attach vdisk
+create partition primary
+format fs=ntfs quick
+assign letter=Z
+
+list volume
+exit
