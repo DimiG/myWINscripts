@@ -181,9 +181,19 @@ Scripts description
    **Note :** Some scripts MAY HAVE the Russian localization in messages.
 
 ### WinPE folder
+
 * `WinPEmaker`: This Windows [CMD][cmd] script helps to create the [Windows PE][winpe] image. `Windows Preinstallation Environment` (also known as Windows PE and WinPE) is a lightweight version of Windows used for the deployment of PCs, workstations, and servers, or troubleshooting an operating system while it is offline. It is intended to replace `MS-DOS` boot disks and can be booted via USB flash drive, PXE, iPXE, CD-ROM or hard disk. Traditionally used by large corporations and OEMs (to preinstall Windows client operating systems on PCs during manufacturing).<br>
    **Note :** Install the `Windows Assessment and Deployment Kit` (ADK) and adding the `Deployment Tools and Windows Preinstallation Environment` features according to [official Microsoft documentation][adk]. If you're using installing the `ADK` for `Windows 10`, `version 1809`, `Windows PE` is a separate add-on that you'll need to download and install after you install the `ADK`.<br>
    ***Important :*** The file `README.md` from `WinPEmaker` folder should be located inside the [WIM][wim] image here: `X:\Windows\Apps`. The [Microsoft original scripts][winpedocs] from `mscripts` folder should be located here: `X:\Windows\Scripts`. The custom made `startnet.cmd` inside the [WIM][wim] image here: `X:\Windows\System32`. The `Create-VHDX.txt` and `WinPEmaker.cmd` stay located on host engineer machine. According to [official Microsoft documentation][winpedocs] the pre-build `WinPE` is located in `C:\WinPE_amd64_PS`. The prepared final images in `C:\VHD`. The current variant contain [PowerShell][powershell] also.<br>
+
+* `All Scripts`:
+   **Note :** Files contain `CRLF` in the end of lines (EOL) cause it is Windows scripts. Otherwise, performance is NOT GUARANTEED!
+
+### Qemu folder
+
+* `vm.cmd`: [QEMU][qemu] is a hosted virtual machine monitor. It emulates the machine's processor through dynamic binary translation and provides a set of different hardware and device models for the machine, enabling it to run a variety of guest operating systems. It also can be used with `KVM` to run virtual machines at near-native speed (by taking advantage of hardware extensions such as Intel VT-x). [QEMU][qemu] can also do emulation for user-level processes, allowing applications compiled for one architecture to run on another.<br>
+   This `CMD` script helps to run the `Qemu` Virtual Machine `VM` on `Windows` platform.<br>
+   ***Requires :*** [Qemu][qemu] MUST BE pre installed on your system.<br>
 
 * `All Scripts`:
    **Note :** Files contain `CRLF` in the end of lines (EOL) cause it is Windows scripts. Otherwise, performance is NOT GUARANTEED!
@@ -228,3 +238,4 @@ These code may be COPYRIGHT PROTECTED by ©2019 DimiG
 [wim]:https://en.wikipedia.org/wiki/Windows_Imaging_Format
 [winpedocs]:https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/index
 [adk]:https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install?ocid=tia-235208000
+[qemu]:https://www.qemu.org
